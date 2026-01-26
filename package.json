@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "astro": "^5.16.15",
-    "i18next": "^25.8.0"
+    "i18next": "^25.8.0",
+    "overlayscrollbars": "^2.13.0"
   }
 }

@@ -36,10 +36,31 @@ const pageDescription = description || i18next.t("site.description");
   </head>
   <body>
     <slot />
+    <script type="module">
+      import { OverlayScrollbars } from "overlayscrollbars";
+
+      const initOverlayScrollbars = () => {
+        if (window.__osInstance) {
+          window.__osInstance.destroy();
+        }
+
+        window.__osInstance = OverlayScrollbars(document.documentElement, {
+          scrollbars: {
+            autoHide: "scroll",
+            autoHideDelay: 800,
+          },
+        });
+      };
+
+      initOverlayScrollbars();
+      document.addEventListener("astro:page-load", initOverlayScrollbars);
+    </script>
   </body>
 </html>
 
 <style is:global>
+  @import "overlayscrollbars/styles/overlayscrollbars.css";
+
   :root {
     --color-primary: #1a365d;
     --color-secondary: #2c5282;
@@ -60,6 +81,11 @@ const pageDescription = description || i18next.t("site.description");
   html {
     font-family: system-ui, sans-serif;
     scroll-behavior: smooth;
+  }
+
+  html,
+  body {
+    min-height: 100%;
   }
 
   html:lang(en) {
