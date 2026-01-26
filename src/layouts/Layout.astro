@@ -1,0 +1,231 @@
+---
+import i18next from "../lib/i18n";
+import { ViewTransitions } from "astro:transitions";
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: string;
+}
+
+const { title, description, lang = "en" } = Astro.props;
+await i18next.changeLanguage(lang);
+
+const pageTitle = title || i18next.t("site.title");
+const pageDescription = description || i18next.t("site.description");
+---
+
+<!doctype html>
+<html lang={lang} dir={lang === "ar" ? "rtl" : "ltr"}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={pageDescription} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <ViewTransitions />
+    <title>{pageTitle}</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --color-primary: #1a365d;
+    --color-secondary: #2c5282;
+    --color-accent: #d4af37;
+    --color-text: #1a202c;
+    --color-text-light: #4a5568;
+    --color-bg: #ffffff;
+    --color-bg-light: #f7fafc;
+    --max-width: 1280px;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-family: system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  html:lang(en) {
+    font-family: 'Inter', sans-serif;
+  }
+
+  html:lang(ar) {
+    font-family: 'Tajawal', sans-serif;
+  }
+
+  body {
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Container */
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Section spacing */
+  .section {
+    padding: 4rem 0;
+  }
+
+  @media (min-width: 768px) {
+    .section {
+      padding: 6rem 0;
+    }
+  }
+
+  /* Button styles */
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-secondary);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .btn-outline:hover {
+    background-color: var(--color-primary);
+    color: white;
+  }
+
+  /* Page layouts */
+  .page-hero {
+    padding: 5rem 0 3rem;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .page-hero p {
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0.9;
+  }
+
+  .page-content {
+    padding: 4rem 0;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .card {
+    background: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  .card h3 {
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .section-title-alt {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+
+  .muted {
+    color: var(--color-text-light);
+  }
+
+  .form {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .form input,
+  .form textarea {
+    padding: 0.75rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    font-family: inherit;
+  }
+
+  .form textarea {
+    min-height: 140px;
+    resize: vertical;
+  }
+
+  .badge-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .badge {
+    background: var(--color-bg-light);
+    border: 1px solid #e2e8f0;
+    padding: 0.4rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+  }
+</style>

@@ -1,0 +1,180 @@
+---
+import i18next from "../lib/i18n";
+
+const { lang } = Astro.props;
+await i18next.changeLanguage(lang);
+const t = (key: string, options?: any) => i18next.t(key, options);
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <div class="footer-brand">
+          <img src="/logo.svg" alt="Ameen Insurance" class="footer-logo" />
+          <h3>AMEEN</h3>
+        </div>
+        <p class="footer-tagline">{t("hero.tagline", { ns: "home" })}</p>
+        <div class="footer-contact">
+          <p>{t("footer.phone")}</p>
+          <p><a href="mailto:info@ameen.me">{t("footer.email")}</a></p>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h4>{t("nav.about")}</h4>
+        <ul>
+          <li><a href={lang === "ar" ? "/ar/about" : "/about"}>{t("nav.about")}</a></li>
+          <li><a href={lang === "ar" ? "/ar/insights" : "/insights"}>{t("nav.insights")}</a></li>
+          <li><a href={lang === "ar" ? "/ar/contact" : "/contact"}>{t("nav.contact")}</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>{t("services.title", { ns: "home" })}</h4>
+        <ul>
+          <li><a href={lang === "ar" ? "/ar/personal" : "/personal"}>{t("nav.personal")}</a></li>
+          <li><a href={lang === "ar" ? "/ar/corporate" : "/corporate"}>{t("nav.corporate")}</a></li>
+          <li><a href={lang === "ar" ? "/ar/advisory" : "/advisory"}>{t("nav.advisory")}</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>{t("footer.company")}</h4>
+        <p class="footer-text">{t("intro.description", { ns: "home" })}</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-legal">
+        <p>{t("footer.copyright")}</p>
+        <p>{t("footer.company")}</p>
+        <p>{t("footer.rights")}</p>
+      </div>
+      <div class="footer-links">
+        <a href={lang === "ar" ? "/ar/terms" : "/terms"}>{t("footer.terms")}</a>
+        <span>|</span>
+        <a href={lang === "ar" ? "/ar/privacy" : "/privacy"}>{t("footer.privacy")}</a>
+      </div>
+    </div>
+
+    <div class="footer-disclaimer">
+      <p>{t("footer.disclaimer")}</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 4rem 0 2rem;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer-brand h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+  }
+
+  .footer-logo {
+    height: 50px;
+    width: auto;
+  }
+
+  .footer-tagline {
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+  }
+
+  .footer-contact p {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-contact a:hover {
+    color: var(--color-accent);
+  }
+
+  .footer-section h4 {
+    margin-bottom: 1rem;
+    color: var(--color-accent);
+  }
+
+  .footer-section ul {
+    list-style: none;
+  }
+
+  .footer-section li {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-section a:hover {
+    color: var(--color-accent);
+  }
+
+  .footer-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-legal p {
+    font-size: 0.875rem;
+    opacity: 0.8;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.875rem;
+  }
+
+  .footer-links a:hover {
+    color: var(--color-accent);
+  }
+
+  .footer-disclaimer {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    line-height: 1.5;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>

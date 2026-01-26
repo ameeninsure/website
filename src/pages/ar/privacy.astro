@@ -1,0 +1,34 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import i18next from "../../lib/i18n";
+
+await i18next.changeLanguage("ar");
+---
+
+<Layout title="سياسة الخصوصية" lang="ar">
+  <Header lang="ar" />
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>سياسة الخصوصية</h1>
+        <p>نحترم خصوصيتك ونحمي بياناتك الشخصية.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container">
+        <h2 class="section-title-alt">البيانات التي نجمعها</h2>
+        <p class="muted">نجمع فقط المعلومات اللازمة للرد على الاستفسارات وتقديم الخدمات.</p>
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">كيفية استخدام البيانات</h2>
+        <p class="muted">نستخدم بياناتك للتواصل معك وتقديم العروض وتحسين خدماتنا.</p>
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">حقوقك</h2>
+        <p class="muted">يمكنك طلب الوصول أو التصحيح أو الحذف لبياناتك في أي وقت.</p>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="ar" />
+</Layout>

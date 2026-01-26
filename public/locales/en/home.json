@@ -1,0 +1,41 @@
+{
+  "hero": {
+    "tagline": "Legacy Secured | Future Assured",
+    "subtitle": "Regal Insurance Management Services",
+    "since": "Protecting Since 2010"
+  },
+  "intro": {
+    "title": "Committed to Your Peace of Mind",
+    "description": "Welcome to Ameen, the evolved identity of Regal Insurance Management Services LLC, a trusted name in the insurance arena of Oman since 2010. With 15 years of industry excellence, we bring together the strength of strategic insurance alliances and deep-rooted local expertise to deliver bespoke, transparent, and reliable insurance solutions for both individuals & corporates."
+  },
+  "services": {
+    "title": "Insurance Solutions Tailored for Life, Business & Beyond",
+    "description": "We offer a full spectrum of insurance services that span across sectors and personal needs. Whether you're safeguarding your home, protecting your health, or securing your corporate interests, we bring the right solutions to your doorstep.",
+    "personal": {
+      "title": "Personal",
+      "items": ["Life Insurance", "Medical", "Car", "Home", "Travel"]
+    },
+    "corporate": {
+      "title": "Corporate",
+      "items": ["Property & Casualty", "Group Medical & Life", "Marine", "Liability & Risk", "Employee Benefits"]
+    },
+    "advisory": {
+      "title": "Advisory",
+      "items": ["Custom Plans", "Insurance Audit", "Risk Assessment", "International Insurance Liaison", "Claims Advocacy"]
+    }
+  },
+  "alliances": {
+    "title": "Strategic Alliances"
+  },
+  "values": {
+    "title": "Ameen is More Than a Brand, It's a Commitment",
+    "description": "We pledge to uphold the highest standards of professionalism and ethical conduct. Every interaction, every recommendation, and every policy is guided by truth, trust, and transparency. With Ameen, you gain more than protection - you gain peace of mind."
+  },
+  "clients": {
+    "title": "Trusted by Many | Valued by All",
+    "subtitle": "Partnerships Built on Trust"
+  },
+  "insights": {
+    "title": "Industry Insights"
+  }
+}

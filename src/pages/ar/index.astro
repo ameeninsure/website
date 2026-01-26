@@ -1,0 +1,339 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import i18next from "../../lib/i18n";
+
+i18next.changeLanguage("ar");
+const t = (key: string, options?: any) => i18next.t(key, options);
+---
+
+<Layout title={t("site.title")} lang="ar">
+  <Header lang="ar" />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <h1 class="hero-title">{t("hero.tagline", { ns: "home" })}</h1>
+        <p class="hero-subtitle">{t("hero.subtitle", { ns: "home" })}</p>
+        <p class="hero-since">{t("hero.since", { ns: "home" })}</p>
+        <a href="#services" class="btn btn-primary">{t("cta.explore")}</a>
+      </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="section intro">
+      <div class="container">
+        <h2 class="section-title">{t("intro.title", { ns: "home" })}</h2>
+        <p class="section-description">{t("intro.description", { ns: "home" })}</p>
+        <a href="/ar/about" class="btn btn-outline">{t("cta.learnMore")}</a>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section services">
+      <div class="container">
+        <h2 class="section-title">{t("services.title", { ns: "home" })}</h2>
+        <p class="section-description">{t("services.description", { ns: "home" })}</p>
+        
+        <div class="services-grid">
+          <!-- Personal -->
+          <div class="service-card">
+            <div class="service-icon">👤</div>
+            <h3>{t("services.personal.title", { ns: "home" })}</h3>
+            <ul>
+              <li>التأمين على الحياة</li>
+              <li>الطبي</li>
+              <li>السيارات</li>
+              <li>المنزل</li>
+              <li>السفر</li>
+            </ul>
+            <a href="/ar/personal" class="btn btn-outline">{t("cta.explore")}</a>
+          </div>
+
+          <!-- Corporate -->
+          <div class="service-card">
+            <div class="service-icon">🏢</div>
+            <h3>{t("services.corporate.title", { ns: "home" })}</h3>
+            <ul>
+              <li>الممتلكات والحوادث</li>
+              <li>الطبي الجماعي والحياة</li>
+              <li>البحري</li>
+              <li>المسؤولية والمخاطر</li>
+              <li>مزايا الموظفين</li>
+            </ul>
+            <a href="/ar/corporate" class="btn btn-outline">{t("cta.explore")}</a>
+          </div>
+
+          <!-- Advisory -->
+          <div class="service-card">
+            <div class="service-icon">💼</div>
+            <h3>{t("services.advisory.title", { ns: "home" })}</h3>
+            <ul>
+              <li>خطط مخصصة</li>
+              <li>تدقيق التأمين</li>
+              <li>تقييم المخاطر</li>
+              <li>الاتصال التأميني الدولي</li>
+              <li>الدفاع عن المطالبات</li>
+            </ul>
+            <a href="/ar/advisory" class="btn btn-outline">{t("cta.explore")}</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="section values">
+      <div class="container">
+        <h2 class="section-title">{t("values.title", { ns: "home" })}</h2>
+        <p class="section-description">{t("values.description", { ns: "home" })}</p>
+        <a href="/ar/about#values" class="btn btn-primary">{t("cta.learnMore")}</a>
+      </div>
+    </section>
+
+    <!-- Strategic Alliances Section -->
+    <section class="section alliances">
+      <div class="container">
+        <h2 class="section-title">{t("alliances.title", { ns: "home" })}</h2>
+        <div class="alliances-grid">
+          <div class="alliance-logo">OQIC</div>
+          <div class="alliance-logo">Liva Insurance</div>
+          <div class="alliance-logo">Damana</div>
+          <div class="alliance-logo">GIG</div>
+          <div class="alliance-logo">New India</div>
+          <div class="alliance-logo">Al Madina Takaful</div>
+          <div class="alliance-logo">Dhofar Insurance</div>
+          <div class="alliance-logo">Takaful Oman</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="section clients">
+      <div class="container">
+        <h2 class="section-title">{t("clients.title", { ns: "home" })}</h2>
+        <h3 class="section-subtitle">{t("clients.subtitle", { ns: "home" })}</h3>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+      <div class="container">
+        <h2 class="section-title">هل أنت مستعد للحصول على الحماية؟</h2>
+        <p class="section-description">اتصل بنا اليوم للحصول على استشارة مجانية وعرض تأمين مخصص.</p>
+        <a href="/ar/contact" class="btn btn-primary">{t("cta.contactUs")}</a>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="ar" />
+</Layout>
+
+<style>
+  /* Hero Section */
+  .hero {
+    position: relative;
+    height: 90vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.25rem, 3vw, 2rem);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+  }
+
+  .hero-since {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    margin-bottom: 2rem;
+    opacity: 0.8;
+  }
+
+  /* Section Styles */
+  .section-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    text-align: center;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    text-align: center;
+    color: var(--color-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .section-description {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    text-align: center;
+    color: var(--color-text-light);
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    line-height: 1.8;
+  }
+
+  /* Intro Section */
+  .intro {
+    text-align: center;
+    background-color: var(--color-bg-light);
+  }
+
+  /* Services Section */
+  .services {
+    background-color: var(--color-bg);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .service-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .service-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .service-card h3 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .service-card ul {
+    list-style: none;
+    margin-bottom: 1.5rem;
+    text-align: right;
+  }
+
+  .service-card li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--color-bg-light);
+  }
+
+  .service-card li:last-child {
+    border-bottom: none;
+  }
+
+  /* Values Section */
+  .values {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .values .section-title {
+    color: white;
+  }
+
+  .values .section-description {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Alliances Section */
+  .alliances {
+    background-color: var(--color-bg-light);
+  }
+
+  .alliances-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    align-items: center;
+  }
+
+  .alliance-logo {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    font-weight: 600;
+    color: var(--color-primary);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .alliance-logo:hover {
+    transform: scale(1.05);
+  }
+
+  /* Clients Section */
+  .clients {
+    background-color: var(--color-bg);
+  }
+
+  /* CTA Section */
+  .cta-section {
+    background-color: var(--color-accent);
+    color: white;
+    text-align: center;
+  }
+
+  .cta-section .section-title {
+    color: white;
+  }
+
+  .cta-section .section-description {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .alliances-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

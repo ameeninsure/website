@@ -1,0 +1,155 @@
+---
+import i18next from "../lib/i18n";
+import LanguageSwitcher from "./LanguageSwitcher.astro";
+
+const { lang } = Astro.props;
+const currentPath = Astro.url.pathname;
+await i18next.changeLanguage(lang);
+const t = (key: string) => i18next.t(key);
+---
+
+<header class="header">
+  <nav class="nav container">
+    <div class="nav-brand">
+      <a href={lang === "ar" ? "/ar" : "/"}>
+        <img src="/logo.svg" alt="Ameen Insurance" class="logo" />
+        <span class="brand-name">AMEEN</span>
+      </a>
+    </div>
+    
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-menu">
+      <li><a href={lang === "ar" ? "/ar" : "/"}>{t("nav.home")}</a></li>
+      <li><a href={lang === "ar" ? "/ar/about" : "/about"}>{t("nav.about")}</a></li>
+      <li><a href={lang === "ar" ? "/ar/personal" : "/personal"}>{t("nav.personal")}</a></li>
+      <li><a href={lang === "ar" ? "/ar/corporate" : "/corporate"}>{t("nav.corporate")}</a></li>
+      <li><a href={lang === "ar" ? "/ar/advisory" : "/advisory"}>{t("nav.advisory")}</a></li>
+      <li><a href={lang === "ar" ? "/ar/insights" : "/insights"}>{t("nav.insights")}</a></li>
+      <li><a href={lang === "ar" ? "/ar/contact" : "/contact"} class="btn btn-primary">{t("nav.contact")}</a></li>
+      <li><LanguageSwitcher lang={lang} currentPath={currentPath} /></li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .header {
+    background-color: var(--color-bg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+  }
+
+  .nav-brand a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+  }
+
+  .logo {
+    height: 50px;
+    width: auto;
+  }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 0.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .nav-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-primary);
+    transition: all 0.3s ease;
+  }
+
+  .nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .nav-menu a {
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .nav-menu a:not(.btn):hover {
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 968px) {
+    .nav-toggle {
+      display: flex;
+    }
+
+    .nav-menu {
+      position: fixed;
+      left: -100%;
+      top: 70px;
+      flex-direction: column;
+      background-color: var(--color-bg);
+      width: 100%;
+      text-align: center;
+      transition: left 0.3s ease;
+      box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+      padding: 2rem 0;
+    }
+
+    .nav-menu.active {
+      left: 0;
+    }
+
+    html:lang(ar) .nav-menu {
+      left: auto;
+      right: -100%;
+    }
+
+    html:lang(ar) .nav-menu.active {
+      right: 0;
+    }
+  }
+</style>
+
+<script>
+  const setupMobileMenu = () => {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (!navToggle || !navMenu) return;
+
+    navToggle.onclick = () => {
+      navMenu.classList.toggle('active');
+    };
+
+    document.onclick = (e) => {
+      if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+        navMenu.classList.remove('active');
+      }
+    };
+  };
+
+  setupMobileMenu();
+  document.addEventListener('astro:page-load', setupMobileMenu);
+</script>

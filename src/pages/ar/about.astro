@@ -1,0 +1,67 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import i18next from "../../lib/i18n";
+
+await i18next.changeLanguage("ar");
+---
+
+<Layout title="حول أمين" lang="ar">
+  <Header lang="ar" />
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>حول أمين</h1>
+        <p>إرث مؤمن. مستقبل مضمون. أمين هي الهوية المتطورة لشركة خدمات الإدارة التأمينية الملكية ذ.م.م منذ 2010.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container two-col">
+        <div>
+          <h2 class="section-title-alt">من نحن</h2>
+          <p class="muted">نحن شركة وساطة تأمينية مرخصة في عمان نقدم حلولاً شفافة وموثوقة ومصممة للأفراد والشركات.</p>
+          <div class="badge-list" style="margin-top:1rem;">
+            <span class="badge">وسيط مرخص</span>
+            <span class="badge">منذ 2010</span>
+            <span class="badge">عُمان</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>رسالتنا</h3>
+          <p>حماية ما يهمكم عبر تغطيات موثوقة ونصح صادق ودعم فعّال للمطالبات.</p>
+          <h3 style="margin-top:1rem;">رؤيتنا</h3>
+          <p>أن نكون الشريك التأميني الأكثر ثقة في عمان عبر الاحترافية والنزاهة والابتكار.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-content" id="values">
+      <div class="container">
+        <h2 class="section-title-alt">قيمنا</h2>
+        <div class="card-grid">
+          <div class="card">
+            <h3>الحقيقة</h3>
+            <p>إرشاد واضح وصادق في كل قرار.</p>
+          </div>
+          <div class="card">
+            <h3>الثقة</h3>
+            <p>شراكات طويلة الأمد مع العملاء وشركات التأمين.</p>
+          </div>
+          <div class="card">
+            <h3>الشفافية</h3>
+            <p>لا مفاجآت ولا شروط مخفية.</p>
+          </div>
+          <div class="card">
+            <h3>الخبرة</h3>
+            <p>تحالفات استراتيجية وخبرة محلية موثوقة.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="ar" />
+</Layout>

@@ -1,0 +1,31 @@
+{
+  "site": {
+    "title": "Ameen Insurance",
+    "description": "Legacy Secured | Future Assured - Regal Insurance Management Services protecting since 2010"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "personal": "Personal",
+    "corporate": "Corporate",
+    "advisory": "Advisory",
+    "insights": "Insights",
+    "contact": "Contact"
+  },
+  "footer": {
+    "copyright": "Copyright © 2010-2026",
+    "company": "Regal Insurance Management Services LLC",
+    "rights": "All Rights Reserved",
+    "disclaimer": "Disclaimer: Ameen, a registered brand of Regal Insurance Management Services LLC, is a licensed insurance brokerage firm in Oman. Website content is for general information only and does not guarantee coverage. Policies are subject to insurer terms.",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "email": "info@ameen.me",
+    "phone": "+968 76888817"
+  },
+  "cta": {
+    "explore": "Explore",
+    "learnMore": "Learn More",
+    "getQuote": "Get Quote",
+    "contactUs": "Contact Us"
+  }
+}
