@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import i18next from "../../lib/i18n";
+import { FiActivity, FiAnchor, FiCreditCard, FiHome, FiUser, FiZap } from "react-icons/fi";
 
 i18next.changeLanguage("ar");
 const t = (key: string, options?: any) => i18next.t(key, options);
@@ -47,10 +48,7 @@ const t = (key: string, options?: any) => i18next.t(key, options);
             <!-- Home Insurance -->
             <a href="/ar/home-insurance" class="insurance-card">
               <div class="insurance-icon domestic">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                  <polyline points="9 22 9 12 15 12 15 22"/>
-                </svg>
+                <FiHome />
               </div>
               <h3 class="insurance-title">تأمين المنزل</h3>
             </a>
@@ -58,9 +56,7 @@ const t = (key: string, options?: any) => i18next.t(key, options);
             <!-- Medical Insurance -->
             <a href="/ar/medical" class="insurance-card">
               <div class="insurance-icon medical">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                </svg>
+                <FiActivity />
               </div>
               <h3 class="insurance-title">التأمين الطبي</h3>
             </a>
@@ -68,10 +64,7 @@ const t = (key: string, options?: any) => i18next.t(key, options);
             <!-- Credit Life -->
             <a href="/ar/life" class="insurance-card">
               <div class="insurance-icon credit">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
-                  <line x1="1" y1="10" x2="23" y2="10"/>
-                </svg>
+                <FiCreditCard />
               </div>
               <h3 class="insurance-title">تأمين القروض</h3>
             </a>
@@ -79,10 +72,7 @@ const t = (key: string, options?: any) => i18next.t(key, options);
             <!-- Marine Insurance -->
             <a href="/ar/contact" class="insurance-card">
               <div class="insurance-icon marine">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M2 20a2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 2-1 2.4 2.4 0 0 1 2 1 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 2-1 2.4 2.4 0 0 1 2 1 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1"/>
-                  <path d="M2 17 22 9M4 10l18-8M6 13l18-8"/>
-                </svg>
+                <FiAnchor />
               </div>
               <h3 class="insurance-title">التأمين البحري</h3>
             </a>
@@ -90,12 +80,7 @@ const t = (key: string, options?: any) => i18next.t(key, options);
             <!-- Personal Accident -->
             <a href="/ar/contact" class="insurance-card">
               <div class="insurance-icon accident">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                  <circle cx="12" cy="7" r="4"/>
-                  <path d="M12 14v7"/>
-                  <path d="m9 18 3-3 3 3"/>
-                </svg>
+                <FiUser />
               </div>
               <h3 class="insurance-title">الحوادث الشخصية</h3>
             </a>
@@ -103,9 +88,7 @@ const t = (key: string, options?: any) => i18next.t(key, options);
             <!-- Get Quick Quotes - Hub -->
             <a href="https://hub.ameen.insure" target="_blank" rel="noopener" class="insurance-card hub-card">
               <div class="insurance-icon hub-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-                </svg>
+                <FiZap />
               </div>
               <h3 class="insurance-title">احصل على عروض سريعة</h3>
             </a>

@@ -6,388 +6,800 @@ const { lang } = Astro.props;
 const currentPath = Astro.url.pathname;
 await i18next.changeLanguage(lang);
 const t = (key: string) => i18next.t(key);
+
+const isArabic = lang === "ar";
+const homeLink = isArabic ? "/ar" : "/";
+const motorLink = isArabic ? "/ar/motor" : "/motor";
+const travelLink = isArabic ? "/ar/travel" : "/travel";
+const homeInsLink = isArabic ? "/ar/home-insurance" : "/home-insurance";
+const medicalLink = isArabic ? "/ar/medical" : "/medical";
+const lifeLink = isArabic ? "/ar/life" : "/life";
+const aboutLink = isArabic ? "/ar/about" : "/about";
+const contactLink = isArabic ? "/ar/contact" : "/contact";
 ---
 
 <header class="header">
   <nav class="nav container">
-    <div class="nav-brand">
-      <a href={lang === "ar" ? "/ar" : "/"}>
-        <img src="/logo.svg" alt="Ameen Insurance" class="logo" />
-        <span class="brand-name">AMEEN</span>
-      </a>
-    </div>
+    <a href={homeLink} class="nav-logo">
+      <img src="/logo.svg" alt="Ameen Insurance" />
+    </a>
     
-    <button class="nav-toggle" aria-label="Toggle navigation">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
+    <!-- Desktop Menu -->
     <ul class="nav-menu">
       <li>
-        <a href={lang === "ar" ? "/ar" : "/"} class="nav-link">
-          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-            <polyline points="9 22 9 12 15 12 15 22"></polyline>
-          </svg>
-          <span>{t("nav.home")}</span>
+        <a href={homeLink} class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          {t("nav.home")}
         </a>
       </li>
-      <li class="nav-dropdown">
-        <a href="#" class="dropdown-toggle nav-link">
-          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-          </svg>
-          <span>{t("nav.insurance")}</span>
-          <span class="arrow">▼</span>
-        </a>
-        <ul class="dropdown-menu">
+      <li class="has-dropdown">
+        <button class="nav-item dropdown-trigger">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          {t("nav.insurance")}
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <ul class="dropdown">
           <li>
-            <a href={lang === "ar" ? "/ar/motor" : "/motor"} class="dropdown-link">
-              <svg class="dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="1" y="8" width="22" height="13" rx="2" ry="2"></rect>
-                <path d="M16 8V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v4"></path>
-                <circle cx="7" cy="16" r="2"></circle>
-                <circle cx="17" cy="16" r="2"></circle>
-              </svg>
-              <span>{t("nav.motor")}</span>
+            <a href={motorLink}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              {t("nav.motor")}
             </a>
           </li>
           <li>
-            <a href={lang === "ar" ? "/ar/travel" : "/travel"} class="dropdown-link">
-              <svg class="dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 16v-2l-8-5V3.5c0-.828-.672-1.5-1.5-1.5S10 2.672 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"></path>
-              </svg>
-              <span>{t("nav.travel")}</span>
+            <a href={travelLink}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 1 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+              {t("nav.travel")}
             </a>
           </li>
           <li>
-            <a href={lang === "ar" ? "/ar/home-insurance" : "/home-insurance"} class="dropdown-link">
-              <svg class="dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-              </svg>
-              <span>{t("nav.homeIns")}</span>
+            <a href={homeInsLink}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              {t("nav.homeIns")}
             </a>
           </li>
           <li>
-            <a href={lang === "ar" ? "/ar/medical" : "/medical"} class="dropdown-link">
-              <svg class="dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-              </svg>
-              <span>{t("nav.medical")}</span>
+            <a href={medicalLink}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              {t("nav.medical")}
             </a>
           </li>
           <li>
-            <a href={lang === "ar" ? "/ar/life" : "/life"} class="dropdown-link">
-              <svg class="dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-              </svg>
-              <span>{t("nav.life")}</span>
+            <a href={lifeLink}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              {t("nav.life")}
             </a>
           </li>
         </ul>
       </li>
       <li>
-        <a href={lang === "ar" ? "/ar/about" : "/about"} class="nav-link">
-          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="12" y1="16" x2="12" y2="12"></line>
-            <line x1="12" y1="8" x2="12.01" y2="8"></line>
-          </svg>
-          <span>{t("nav.about")}</span>
+        <a href={aboutLink} class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          {t("nav.about")}
         </a>
       </li>
       <li>
-        <a href={lang === "ar" ? "/ar/contact" : "/contact"} class="nav-link">
-          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-          </svg>
-          <span>{t("nav.support")}</span>
+        <a href={contactLink} class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          {t("nav.support")}
         </a>
       </li>
-      <li>
-        <a href="https://hub.ameen.insure" class="btn btn-primary nav-link-btn" target="_blank" rel="noopener">
-          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M16 12H8m4-4l-4 4 4 4"></path>
-          </svg>
-          <span>{t("nav.buyNow")}</span>
-        </a>
-      </li>
-      <li><LanguageSwitcher lang={lang} currentPath={currentPath} /></li>
     </ul>
+
+    <div class="nav-actions">
+      <LanguageSwitcher lang={lang} currentPath={currentPath} />
+      <a href="https://hub.ameen.insure" class="btn-cta" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        {t("nav.buyNow")}
+      </a>
+      
+      <!-- Mobile Toggle -->
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+    </div>
   </nav>
 </header>
 
-<style>
-  .header {
-    background-color: var(--color-bg);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+<!-- Mobile Menu Overlay -->
+<div class="mobile-overlay" id="mobile-overlay"></div>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu-header">
+    <a href={homeLink} class="mobile-logo">
+      <img src="/logo.svg" alt="Ameen Insurance" />
+    </a>
+    <button class="mobile-close" id="mobile-close" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  
+  <nav class="mobile-nav">
+    <a href={homeLink} class="mobile-link">
+      <span class="mobile-link-icon home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </span>
+      <span class="mobile-link-text">{t("nav.home")}</span>
+      <svg class="mobile-link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
+    
+    <div class="mobile-section">
+      <div class="mobile-section-title">{t("nav.insurance")}</div>
+      <div class="mobile-section-grid">
+        <a href={motorLink} class="mobile-card">
+          <span class="mobile-card-icon motor">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </span>
+          <span class="mobile-card-text">{t("nav.motor")}</span>
+        </a>
+        <a href={travelLink} class="mobile-card">
+          <span class="mobile-card-icon travel">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 1 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+          </span>
+          <span class="mobile-card-text">{t("nav.travel")}</span>
+        </a>
+        <a href={homeInsLink} class="mobile-card">
+          <span class="mobile-card-icon domestic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </span>
+          <span class="mobile-card-text">{t("nav.homeIns")}</span>
+        </a>
+        <a href={medicalLink} class="mobile-card">
+          <span class="mobile-card-icon medical">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </span>
+          <span class="mobile-card-text">{t("nav.medical")}</span>
+        </a>
+        <a href={lifeLink} class="mobile-card">
+          <span class="mobile-card-icon life">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </span>
+          <span class="mobile-card-text">{t("nav.life")}</span>
+        </a>
+      </div>
+    </div>
+
+    <a href={aboutLink} class="mobile-link">
+      <span class="mobile-link-icon about">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      </span>
+      <span class="mobile-link-text">{t("nav.about")}</span>
+      <svg class="mobile-link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
+    
+    <a href={contactLink} class="mobile-link">
+      <span class="mobile-link-icon contact">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </span>
+      <span class="mobile-link-text">{t("nav.support")}</span>
+      <svg class="mobile-link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
+  </nav>
+
+  <div class="mobile-footer">
+    <a href="https://hub.ameen.insure" class="mobile-cta" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      {t("nav.buyNow")}
+    </a>
+    <div class="mobile-lang">
+      <LanguageSwitcher lang={lang} currentPath={currentPath} />
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  /* Prevent horizontal scroll */
+  html, body {
+    overflow-x: hidden;
   }
 
-  .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 1.5rem;
+  body.menu-open {
+    overflow: hidden !important;
+    position: fixed;
+    width: 100%;
+    height: 100%;
   }
 
-  .nav-brand a {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-weight: 800;
-    font-size: 1.5rem;
-    color: var(--color-primary);
-  }
-
-  .logo {
-    height: 50px;
-    width: auto;
-  }
-
-  .nav-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 0.25rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-  }
-
-  .nav-toggle span {
-    width: 25px;
-    height: 3px;
-    background-color: var(--color-primary);
-    transition: all 0.3s ease;
-  }
-
-  .nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-    align-items: center;
-  }
-
-  .nav-link {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-  }
-
-  .nav-icon {
-    width: 20px;
-    height: 20px;
-    stroke: var(--color-primary);
-    transition: all 0.3s ease;
-  }
-
-  .nav-link:hover .nav-icon {
-    stroke: var(--color-accent);
-    transform: translateY(-2px);
-  }
-
-  .nav-link-btn {
-    padding: 0.6rem 1.5rem;
-    border-radius: 0.5rem;
-  }
-
-  .nav-link-btn .nav-icon {
-    stroke: white;
-    width: 18px;
-    height: 18px;
-  }
-
-  .nav-link-btn:hover .nav-icon {
-    stroke: white;
-  }
-
-  .nav-menu a {
-    font-weight: 500;
-    transition: color 0.3s ease;
-  }
-
-  .nav-menu a:not(.btn):hover {
-    color: var(--color-accent);
-  }
-
-  /* Dropdown styles */
-  .nav-dropdown {
-    position: relative;
-  }
-
-  .dropdown-toggle {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-  }
-
-  .arrow {
-    font-size: 0.7rem;
-    transition: transform 0.3s ease;
-  }
-
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    border-radius: 0.5rem;
-    padding: 0.5rem 0;
-    min-width: 200px;
+  /* Mobile Overlay */
+  .mobile-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-10px);
     transition: all 0.3s ease;
-    list-style: none;
-    z-index: 100;
+    z-index: 9998;
+    pointer-events: none;
   }
 
-  .nav-dropdown:hover .dropdown-menu {
+  .mobile-overlay.active {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    pointer-events: auto;
   }
 
-  .dropdown-menu li {
-    padding: 0;
+  /* Mobile Menu */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 380px;
+    height: 100vh;
+    height: 100dvh;
+    background: white;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.3s;
+    overflow-y: auto;
+    visibility: hidden;
   }
 
-  .dropdown-link {
+  html[dir="rtl"] .mobile-menu,
+  html:lang(ar) .mobile-menu {
+    right: auto;
+    left: 0;
+    transform: translateX(-100%);
+  }
+
+  .mobile-menu.active {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  html[dir="rtl"] .mobile-menu.active,
+  html:lang(ar) .mobile-menu.active {
+    transform: translateX(0);
+  }
+
+  .mobile-menu-header {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem 1.25rem;
-    color: var(--color-text);
-    white-space: nowrap;
-    transition: all 0.3s ease;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-bg-light, #f7fafc);
   }
 
-  .dropdown-icon {
-    width: 18px;
-    height: 18px;
-    stroke: var(--color-primary);
-    transition: all 0.3s ease;
+  .mobile-logo img {
+    height: 48px;
+  }
+
+  .mobile-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--color-bg-light, #f7fafc);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-close svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-text, #1a202c);
+  }
+
+  .mobile-close:hover {
+    background: var(--color-primary, #1a365d);
+  }
+
+  .mobile-close:hover svg {
+    color: white;
+  }
+
+  /* Mobile Nav */
+  .mobile-nav {
+    flex: 1;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    overflow-y: auto;
+  }
+
+  .mobile-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.875rem 1rem;
+    background: var(--color-bg-light, #f7fafc);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-link:hover {
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%);
+  }
+
+  .mobile-link-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    color: white;
     flex-shrink: 0;
   }
 
-  .dropdown-link:hover {
-    background: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, rgba(147, 51, 234, 0.05) 100%);
-    color: var(--color-primary);
+  .mobile-link-icon.home { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+  .mobile-link-icon.about { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+  .mobile-link-icon.contact { background: linear-gradient(135deg, #10b981, #059669); }
+
+  .mobile-link-icon svg {
+    width: 22px;
+    height: 22px;
   }
 
-  .dropdown-link:hover .dropdown-icon {
-    stroke: var(--color-accent);
-    transform: translateX(4px);
+  .mobile-link-text {
+    flex: 1;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text, #1a202c);
   }
 
-  .dropdown-menu a {
-    display: block;
-    padding: 0.75rem 1.25rem;
-    color: var(--color-text);
-    white-space: nowrap;
+  .mobile-link-arrow {
+    width: 20px;
+    height: 20px;
+    color: var(--color-text-muted, #718096);
+    flex-shrink: 0;
   }
 
-  .dropdown-menu a:hover {
-    background: var(--color-bg-light);
-    color: var(--color-primary);
+  html[dir="rtl"] .mobile-link-arrow,
+  html:lang(ar) .mobile-link-arrow {
+    transform: rotate(180deg);
   }
 
-  html:lang(ar) .dropdown-menu {
-    left: auto;
-    right: 0;
+  /* Mobile Section */
+  .mobile-section {
+    margin: 0.5rem 0;
   }
 
-  html:lang(ar) .dropdown-link:hover .dropdown-icon {
-    transform: translateX(-4px);
+  .mobile-section-title {
+    padding: 0.5rem 1rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-text-muted, #718096);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
-  @media (max-width: 968px) {
-    .nav-toggle {
-      display: flex;
+  .mobile-section-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    padding: 0 0.25rem;
+  }
+
+  .mobile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.25rem 0.75rem;
+    background: var(--color-bg-light, #f7fafc);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .mobile-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    color: white;
+  }
+
+  .mobile-card-icon.motor { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+  .mobile-card-icon.travel { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+  .mobile-card-icon.domestic { background: linear-gradient(135deg, #10b981, #059669); }
+  .mobile-card-icon.medical { background: linear-gradient(135deg, #ef4444, #dc2626); }
+  .mobile-card-icon.life { background: linear-gradient(135deg, #ec4899, #db2777); }
+
+  .mobile-card-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .mobile-card-text {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text, #1a202c);
+    text-align: center;
+  }
+
+  /* Mobile Footer */
+  .mobile-footer {
+    padding: 1rem 1.25rem;
+    border-top: 1px solid var(--color-bg-light, #f7fafc);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .mobile-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--color-primary, #1a365d) 0%, var(--color-secondary, #2c5282) 100%);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-cta svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .mobile-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(79, 70, 229, 0.3);
+  }
+
+  .mobile-lang {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (max-width: 400px) {
+    .mobile-menu {
+      max-width: 100%;
     }
 
-    .nav-menu {
-      position: fixed;
-      left: -100%;
-      top: 70px;
-      flex-direction: column;
-      background-color: var(--color-bg);
-      width: 100%;
-      text-align: center;
-      transition: left 0.3s ease;
-      box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-      padding: 2rem 0;
+    .mobile-section-grid {
+      gap: 0.5rem;
     }
 
-    .nav-menu.active {
-      left: 0;
+    .mobile-card {
+      padding: 1rem 0.5rem;
     }
 
-    html:lang(ar) .nav-menu {
-      left: auto;
-      right: -100%;
+    .mobile-card-icon {
+      width: 46px;
+      height: 46px;
     }
 
-    html:lang(ar) .nav-menu.active {
-      right: 0;
-    }
-
-    .dropdown-menu {
-      position: static;
-      opacity: 1;
-      visibility: visible;
-      transform: none;
-      box-shadow: none;
-      padding: 0.5rem 0 0.5rem 1rem;
-      background: var(--color-bg-light);
-    }
-
-    .nav-dropdown:hover .dropdown-menu {
-      display: block;
+    .mobile-card-icon svg {
+      width: 22px;
+      height: 22px;
     }
   }
 </style>
 
-<script>
-  const setupMobileMenu = () => {
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    const dropdownToggle = document.querySelector('.dropdown-toggle');
-    const dropdownMenu = document.querySelector('.dropdown-menu');
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
 
-    if (!navToggle || !navMenu) return;
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
 
-    navToggle.onclick = () => {
-      navMenu.classList.toggle('active');
-    };
+  /* Logo */
+  .nav-logo {
+    display: flex;
+    align-items: center;
+  }
 
-    // Mobile dropdown toggle
-    if (dropdownToggle && window.innerWidth <= 968) {
-      dropdownToggle.onclick = (e) => {
-        e.preventDefault();
-        if (dropdownMenu) {
-          dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
-        }
-      };
+  .nav-logo img {
+    height: 56px;
+    width: auto;
+  }
+
+  /* Desktop Menu */
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-text);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .nav-item svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  .nav-item:hover {
+    background: var(--color-bg-light);
+    color: var(--color-primary);
+  }
+
+  /* Dropdown */
+  .has-dropdown {
+    position: relative;
+  }
+
+  .dropdown-trigger .chevron {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.2s ease;
+  }
+
+  .has-dropdown:hover .chevron {
+    transform: rotate(180deg);
+  }
+
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    min-width: 220px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+    padding: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    list-style: none;
+  }
+
+  .has-dropdown:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .dropdown li a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    color: var(--color-text);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+  }
+
+  .dropdown li a svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+
+  .dropdown li a:hover {
+    background: var(--color-bg-light);
+    color: var(--color-primary);
+  }
+
+  /* Actions */
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .btn-cta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .btn-cta svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .btn-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+  }
+
+  /* Mobile Toggle */
+  .mobile-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 24px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--color-primary);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-toggle[aria-expanded="true"] .hamburger span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .mobile-toggle[aria-expanded="true"] .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-toggle[aria-expanded="true"] .hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .nav-menu {
+      display: none;
     }
 
-    document.onclick = (e) => {
-      if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
-        navMenu.classList.remove('active');
-      }
-    };
-  };
+    .btn-cta {
+      display: none;
+    }
 
+    .mobile-toggle {
+      display: flex;
+    }
+  }
+
+  /* RTL Adjustments */
+  html:lang(ar) .dropdown {
+    left: auto;
+    right: 50%;
+    transform: translateX(50%) translateY(8px);
+  }
+
+  html:lang(ar) .has-dropdown:hover .dropdown {
+    transform: translateX(50%) translateY(0);
+  }
+</style>
+
+<script>
+  function setupMobileMenu() {
+    const toggle = document.getElementById('mobile-toggle');
+    const closeBtn = document.getElementById('mobile-close');
+    const overlay = document.getElementById('mobile-overlay');
+    const menu = document.getElementById('mobile-menu');
+
+    if (!toggle || !menu || !overlay || !closeBtn) {
+      console.warn('Mobile menu elements not found');
+      return;
+    }
+
+    let scrollPosition = 0;
+
+    function openMenu() {
+      scrollPosition = window.pageYOffset;
+      menu.classList.add('active');
+      overlay.classList.add('active');
+      toggle.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('menu-open');
+      document.body.style.top = `-${scrollPosition}px`;
+    }
+
+    function closeMenu() {
+      menu.classList.remove('active');
+      overlay.classList.remove('active');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-open');
+      document.body.style.top = '';
+      window.scrollTo(0, scrollPosition);
+    }
+
+    // Remove existing listeners first
+    toggle.onclick = null;
+    closeBtn.onclick = null;
+    overlay.onclick = null;
+
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const isOpen = menu.classList.contains('active');
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    closeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeMenu();
+    });
+
+    overlay.addEventListener('click', closeMenu);
+
+    // Close menu on link click
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        closeMenu();
+      });
+    });
+
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.classList.contains('active')) {
+        closeMenu();
+      }
+    });
+  }
+
+  // Run on initial load
   setupMobileMenu();
+
+  // Run on Astro page transitions
   document.addEventListener('astro:page-load', setupMobileMenu);
+
+  // Also run when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupMobileMenu);
+  }
 </script>
