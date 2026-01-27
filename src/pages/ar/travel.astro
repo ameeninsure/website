@@ -12,8 +12,11 @@ await i18next.changeLanguage("ar");
 
   <main dir="rtl">
     <section class="page-hero">
-      <div class="container">
+      <div class="container hero-container">
         <h1>تأمين السفر</h1>
+        <div class="hero-visual">
+          <img src="/images/travel-hero.png" alt="حماية تأمين السفر" class="hero-image" />
+        </div>
         <p>احمِ رحلتك بتغطية شاملة للسفر.</p>
       </div>
     </section>
@@ -87,6 +90,47 @@ await i18next.changeLanguage("ar");
 </Layout>
 
 <style>
+  .page-hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    padding: 4rem 0;
+    position: relative;
+  }
+
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .hero-visual {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    z-index: 10;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+  }
+
+  .page-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+  }
+
+  .page-hero p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0;
+  }
+
   .content-grid {
     display: grid;
     grid-template-columns: 1fr 320px;
