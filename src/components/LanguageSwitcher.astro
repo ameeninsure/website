@@ -6,6 +6,7 @@ const { lang, currentPath } = Astro.props;
 // Toggle between languages
 const otherLang = lang === "en" ? "ar" : "en";
 const otherLangName = lang === "en" ? "العربية" : "English";
+const isArabicText = lang === "en"; // When in English, we show Arabic text
 
 // Generate the path for the other language
 let otherLangPath = "/";
@@ -17,7 +18,7 @@ if (lang === "en") {
 ---
 
 <div class="language-switcher">
-  <a href={otherLangPath} class="lang-link">
+  <a href={otherLangPath} class={`lang-link ${isArabicText ? 'arabic-text' : ''}`}>
     <FiGlobe className="lang-icon" />
     <span>{otherLangName}</span>
   </a>
@@ -39,6 +40,10 @@ if (lang === "en") {
     font-weight: 500;
     transition: all 0.3s ease;
     line-height: 1.2;
+  }
+
+  .lang-link.arabic-text {
+    font-family: 'Vazirmatn', 'Cairo', sans-serif;
   }
 
   .lang-link:hover {
