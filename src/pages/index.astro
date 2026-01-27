@@ -2,11 +2,27 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import AlliancesCarousel from "../components/AlliancesCarousel.tsx";
 import i18next from "../lib/i18n";
 import { FiActivity, FiAnchor, FiCreditCard, FiHome, FiUser, FiZap } from "react-icons/fi";
 
 await i18next.changeLanguage("en");
 const t = (key: string, options?: any) => i18next.t(key, options);
+
+const alliances = [
+  { logo: "/images/alliances/oqic.png", alt: "OQIC logo" },
+  { logo: "/images/alliances/liva.png", alt: "Liva Insurance logo" },
+  { logo: "/images/alliances/damana.png", alt: "Damana Insurance logo" },
+  { logo: "/images/alliances/gig.png", alt: "GIG Insurance logo" },
+  { logo: "/images/alliances/new-india.png", alt: "New India Assurance logo" },
+  { logo: "/images/alliances/al-madina-takaful.png", alt: "Al Madina Takaful logo" },
+  { logo: "/images/alliances/dhofar.png", alt: "Dhofar Insurance logo" },
+  { logo: "/images/alliances/takaful-oman.png", alt: "Takaful Oman Insurance logo" },
+  { logo: "/images/alliances/orient.png", alt: "Orient Insurance logo" },
+  { logo: "/images/alliances/falcon-arabia.png", alt: "Falcon Arabia Insurance logo" },
+  { logo: "/images/alliances/iran-insurance.png", alt: "Iran Insurance logo" },
+  { logo: "/images/alliances/muscat-insurance.png", alt: "Muscat Insurance Company logo" },
+];
 ---
 
 <Layout title={String(t("site.title"))} lang="en">
@@ -112,44 +128,7 @@ const t = (key: string, options?: any) => i18next.t(key, options);
     <section class="section alliances">
       <div class="container">
         <h2 class="section-title">{t("alliances.title", { ns: "home" })}</h2>
-        <div class="alliances-grid">
-          <div class="alliance-logo">
-            <img src="/images/alliances/oqic.png" alt="OQIC logo" loading="lazy" />
-          </div>
-          <div class="alliance-logo">
-            <img src="/images/alliances/liva.png" alt="Liva Insurance logo" loading="lazy" />
-          </div>
-          <div class="alliance-logo">
-            <img src="/images/alliances/damana.png" alt="Damana Insurance logo" loading="lazy" />
-          </div>
-          <div class="alliance-logo">
-            <img src="/images/alliances/gig.png" alt="GIG Insurance logo" loading="lazy" />
-          </div>
-          <div class="alliance-logo">
-            <img src="/images/alliances/new-india.png" alt="New India Assurance logo" loading="lazy" />
-          </div>
-          <div class="alliance-logo">
-            <img src="/images/alliances/al-madina-takaful.png" alt="Al Madina Takaful logo" loading="lazy" />
-          </div>
-          <div class="alliance-logo">
-            <img src="/images/alliances/dhofar.png" alt="Dhofar Insurance logo" loading="lazy" />
-          </div>
-          <div class="alliance-logo">
-            <img src="/images/alliances/takaful-oman.png" alt="Takaful Oman Insurance logo" loading="lazy" />
-          </div>
-          <div class="alliance-logo">
-            <img src="/images/alliances/orient.png" alt="Orient Insurance logo" loading="lazy" />
-          </div>
-          <div class="alliance-logo">
-            <img src="/images/alliances/falcon-arabia.png" alt="Falcon Arabia Insurance logo" loading="lazy" />
-          </div>
-          <div class="alliance-logo">
-            <img src="/images/alliances/iran-insurance.png" alt="Iran Insurance logo" loading="lazy" />
-          </div>
-          <div class="alliance-logo">
-            <img src="/images/alliances/muscat-insurance.png" alt="Muscat Insurance Company logo" loading="lazy" />
-          </div>
-        </div>
+        <AlliancesCarousel alliances={alliances} client:load />
       </div>
     </section>
 
@@ -241,8 +220,6 @@ const t = (key: string, options?: any) => i18next.t(key, options);
     text-decoration: none;
     position: relative;
     overflow: hidden;
-    --mouse-x: 50%;
-    --mouse-y: 50%;
   }
 
   .insurance-card::before {
@@ -255,16 +232,6 @@ const t = (key: string, options?: any) => i18next.t(key, options);
     z-index: 0;
   }
 
-  .insurance-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(220px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.45), transparent 60%);
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    pointer-events: none;
-    z-index: 0;
-  }
 
   .insurance-card:hover {
     transform: none;
@@ -273,10 +240,6 @@ const t = (key: string, options?: any) => i18next.t(key, options);
 
   .insurance-card:hover::before {
     opacity: 0.05;
-  }
-
-  .insurance-card:hover::after {
-    opacity: 1;
   }
 
   .insurance-icon {
@@ -634,36 +597,4 @@ const t = (key: string, options?: any) => i18next.t(key, options);
     }
   }
 </style>
-
-<script>
-  function setupCardGlow() {
-    const cards = document.querySelectorAll('.insurance-card') as NodeListOf<HTMLElement>;
-    if (!cards.length) return;
-
-    cards.forEach((card) => {
-      card.onmousemove = null;
-      card.onmouseleave = null;
-
-      card.addEventListener('mousemove', (e) => {
-        const evt = e as MouseEvent;
-        const rect = card.getBoundingClientRect();
-        const x = evt.clientX - rect.left;
-        const y = evt.clientY - rect.top;
-        card.style.setProperty('--mouse-x', `${x}px`);
-        card.style.setProperty('--mouse-y', `${y}px`);
-      });
-
-      card.addEventListener('mouseleave', () => {
-        card.style.setProperty('--mouse-x', '50%');
-        card.style.setProperty('--mouse-y', '50%');
-      });
-    });
-  }
-
-  setupCardGlow();
-  document.addEventListener('astro:page-load', setupCardGlow);
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setupCardGlow);
-  }
-</script>
 
