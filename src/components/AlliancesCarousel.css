@@ -98,6 +98,24 @@
   right: -24px;
 }
 
+[dir="rtl"] .embla__button--prev {
+  left: auto;
+  right: -24px;
+}
+
+[dir="rtl"] .embla__button--next {
+  right: auto;
+  left: -24px;
+}
+
+[dir="rtl"] .embla__button--prev svg {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .embla__button--next svg {
+  transform: scaleX(-1);
+}
+
 .embla__button:disabled {
   opacity: 0.3;
   cursor: not-allowed;

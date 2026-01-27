@@ -9,14 +9,16 @@ interface Alliance {
 
 interface AlliancesCarouselProps {
   alliances: Alliance[];
+  isRTL?: boolean;
 }
 
-export default function AlliancesCarousel({ alliances }: AlliancesCarouselProps) {
+export default function AlliancesCarousel({ alliances, isRTL = false }: AlliancesCarouselProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: false,
     align: 'start',
     slidesToScroll: 1,
     skipSnaps: false,
+    direction: isRTL ? 'rtl' : 'ltr',
   });
 
   const scrollPrev = useCallback(() => {
