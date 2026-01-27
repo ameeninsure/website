@@ -9,7 +9,7 @@ await i18next.changeLanguage("en");
 const t = (key: string, options?: any) => i18next.t(key, options);
 ---
 
-<Layout title={t("site.title")} lang="en">
+<Layout title={String(t("site.title"))} lang="en">
   <Header lang="en" />
   
   <main>
@@ -241,6 +241,8 @@ const t = (key: string, options?: any) => i18next.t(key, options);
     text-decoration: none;
     position: relative;
     overflow: hidden;
+    --mouse-x: 50%;
+    --mouse-y: 50%;
   }
 
   .insurance-card::before {
@@ -253,6 +255,17 @@ const t = (key: string, options?: any) => i18next.t(key, options);
     z-index: 0;
   }
 
+  .insurance-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(220px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.45), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+    z-index: 0;
+  }
+
   .insurance-card:hover {
     transform: none;
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
@@ -260,6 +273,10 @@ const t = (key: string, options?: any) => i18next.t(key, options);
 
   .insurance-card:hover::before {
     opacity: 0.05;
+  }
+
+  .insurance-card:hover::after {
+    opacity: 1;
   }
 
   .insurance-icon {
@@ -617,4 +634,36 @@ const t = (key: string, options?: any) => i18next.t(key, options);
     }
   }
 </style>
+
+<script>
+  function setupCardGlow() {
+    const cards = document.querySelectorAll('.insurance-card') as NodeListOf<HTMLElement>;
+    if (!cards.length) return;
+
+    cards.forEach((card) => {
+      card.onmousemove = null;
+      card.onmouseleave = null;
+
+      card.addEventListener('mousemove', (e) => {
+        const evt = e as MouseEvent;
+        const rect = card.getBoundingClientRect();
+        const x = evt.clientX - rect.left;
+        const y = evt.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.setProperty('--mouse-x', '50%');
+        card.style.setProperty('--mouse-y', '50%');
+      });
+    });
+  }
+
+  setupCardGlow();
+  document.addEventListener('astro:page-load', setupCardGlow);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupCardGlow);
+  }
+</script>
 

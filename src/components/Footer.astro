@@ -4,39 +4,38 @@ import i18next from "../lib/i18n";
 const { lang } = Astro.props;
 await i18next.changeLanguage(lang);
 const t = (key: string, options?: any) => i18next.t(key, options);
+
+const aboutLink = lang === "ar" ? "/ar/about" : "/about";
+const contactLink = lang === "ar" ? "/ar/contact" : "/contact";
+const supportLink = lang === "ar" ? "/ar/support" : "/support";
+const advisoryLink = lang === "ar" ? "/ar/advisory" : "/advisory";
+const insightsLink = lang === "ar" ? "/ar/insights" : "/insights";
+
+const importantTitle = lang === "ar" ? "صفحات مهمة" : "Important Pages";
+const ctaTitle = lang === "ar" ? "الدعم" : "Support";
+const ctaDescription =
+  lang === "ar"
+    ? "فريقنا جاهز لمساعدتك والإجابة عن استفساراتك في أي وقت."
+    : "Our team is here to help you and answer your questions anytime.";
 ---
 
 <footer class="footer">
   <div class="container">
     <div class="footer-content">
-      <div class="footer-section">
-        <div class="footer-brand">
-          <img src="/logo.svg" alt="Ameen Insurance" class="footer-logo" />
-          <h3>AMEEN</h3>
-        </div>
-        <p class="footer-tagline">{t("hero.tagline", { ns: "home" })}</p>
-        <div class="footer-contact">
-          <p>{t("footer.phone")}</p>
-          <p><a href="mailto:info@ameen.me">{t("footer.email")}</a></p>
-        </div>
+      <div class="footer-section footer-cta">
+        <h4>{ctaTitle}</h4>
+        <p class="footer-text">{ctaDescription}</p>
+        <a class="footer-cta-btn" href={supportLink}>{lang === "ar" ? "الدعم" : "Support"}</a>
       </div>
 
-      <div class="footer-section">
-        <h4>{t("nav.about")}</h4>
-        <ul>
-          <li><a href={lang === "ar" ? "/ar/about" : "/about"}>{t("nav.about")}</a></li>
-          <li><a href={lang === "ar" ? "/ar/insights" : "/insights"}>{t("nav.insights")}</a></li>
-          <li><a href={lang === "ar" ? "/ar/contact" : "/contact"}>{t("nav.contact")}</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-section">
-        <h4>{t("services.title", { ns: "home" })}</h4>
-        <ul>
-          <li><a href={lang === "ar" ? "/ar/personal" : "/personal"}>{t("nav.personal")}</a></li>
-          <li><a href={lang === "ar" ? "/ar/corporate" : "/corporate"}>{t("nav.corporate")}</a></li>
-          <li><a href={lang === "ar" ? "/ar/advisory" : "/advisory"}>{t("nav.advisory")}</a></li>
-        </ul>
+      <div class="footer-section footer-quick-links">
+        <h4>{importantTitle}</h4>
+        <div class="footer-buttons">
+          <a class="footer-btn" href={aboutLink}>{t("nav.about")}</a>
+          <a class="footer-btn" href={contactLink}>{t("nav.contact")}</a>
+          <a class="footer-btn" href={advisoryLink}>{t("nav.advisory")}</a>
+          <a class="footer-btn" href={insightsLink}>{t("nav.insights")}</a>
+        </div>
       </div>
 
       <div class="footer-section">
@@ -47,9 +46,7 @@ const t = (key: string, options?: any) => i18next.t(key, options);
 
     <div class="footer-bottom">
       <div class="footer-legal">
-        <p>{t("footer.copyright")}</p>
         <p>{t("footer.company")}</p>
-        <p>{t("footer.rights")}</p>
       </div>
       <div class="footer-links">
         <a href={lang === "ar" ? "/ar/terms" : "/terms"}>{t("footer.terms")}</a>
@@ -58,9 +55,6 @@ const t = (key: string, options?: any) => i18next.t(key, options);
       </div>
     </div>
 
-    <div class="footer-disclaimer">
-      <p>{t("footer.disclaimer")}</p>
-    </div>
   </div>
 </footer>
 
@@ -114,6 +108,58 @@ const t = (key: string, options?: any) => i18next.t(key, options);
     color: var(--color-accent);
   }
 
+  .footer-cta h4 {
+    color: white;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-cta .footer-text {
+    margin-bottom: 1rem;
+  }
+
+  .footer-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.65rem 1.25rem;
+    border-radius: 0.5rem;
+    background: var(--color-accent);
+    color: #1a202c;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .footer-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    color: white;
+  }
+
+  .footer-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .footer-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.55rem 1rem;
+    border-radius: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .footer-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+
   .footer-section ul {
     list-style: none;
   }
@@ -122,7 +168,11 @@ const t = (key: string, options?: any) => i18next.t(key, options);
     margin-bottom: 0.5rem;
   }
 
-  .footer-section a:hover {
+  .footer-cta .footer-cta-btn:hover {
+    color: white;
+  }
+
+  .footer-section a:hover:not(.footer-cta-btn) {
     color: var(--color-accent);
   }
 
