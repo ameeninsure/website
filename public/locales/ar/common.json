@@ -5,11 +5,15 @@
   },
   "nav": {
     "home": "الرئيسية",
+    "insurance": "التأمين",
+    "motor": "السيارات",
+    "travel": "السفر",
+    "homeIns": "المنزل",
+    "medical": "الطبي",
+    "life": "الحياة",
     "about": "حول",
-    "personal": "شخصي",
-    "corporate": "شركات",
-    "advisory": "استشارات",
-    "insights": "رؤى",
+    "support": "الدعم",
+    "buyNow": "اشترِ الآن",
     "contact": "اتصل بنا"
   },
   "footer": {

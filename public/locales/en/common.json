@@ -5,11 +5,15 @@
   },
   "nav": {
     "home": "Home",
+    "insurance": "Insurance",
+    "motor": "Motor",
+    "travel": "Travel",
+    "homeIns": "Home",
+    "medical": "Medical",
+    "life": "Life",
     "about": "About",
-    "personal": "Personal",
-    "corporate": "Corporate",
-    "advisory": "Advisory",
-    "insights": "Insights",
+    "support": "Support",
+    "buyNow": "Buy Now",
     "contact": "Contact"
   },
   "footer": {

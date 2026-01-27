@@ -13,7 +13,7 @@ const t = (key: string, options?: any) => i18next.t(key, options);
   
   <main>
     <!-- Hero Section -->
-    <section class="hero" aria-label="فيديو مميز">
+    <section class="hero" dir="rtl" aria-label="عروض التأمين السريعة">
       <video
         class="hero-video"
         src="/file.mp4"
@@ -25,12 +25,92 @@ const t = (key: string, options?: any) => i18next.t(key, options);
       ></video>
       <div class="hero-overlay" aria-hidden="true"></div>
       <div class="container hero-content">
-        <div class="hero-text">
-          <p class="hero-eyebrow">وسيط تأمين أمين</p>
-          <h1 class="hero-title">إرث مؤمن. مستقبل مضمون.</h1>
-          <p class="hero-description">حماية مصممة، وإرشاد شفاف، وتغطية موثوقة في عُمان.</p>
-          <div class="hero-cta">
-            <a href="https://hub.ameen.insure" class="btn btn-primary" target="_blank" rel="noopener">شراء التأمين أونلاين</a>
+        <div class="hero-offers">
+          <h1 class="hero-title">احصل على عروض تأمين سريعة</h1>
+          <div class="insurance-grid">
+            <!-- Motor Insurance -->
+            <a href="/ar/motor" class="insurance-card">
+              <div class="insurance-icon motor-special">
+                <img src="/images/motor-hero.png" alt="تأمين السيارات" />
+              </div>
+              <h3 class="insurance-title">تأمين السيارات</h3>
+            </a>
+
+            <!-- Travel Insurance -->
+            <a href="/ar/travel" class="insurance-card">
+              <div class="insurance-icon travel">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 1 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+                </svg>
+              </div>
+              <h3 class="insurance-title">تأمين السفر</h3>
+            </a>
+
+            <!-- Home Insurance -->
+            <a href="/ar/home-insurance" class="insurance-card">
+              <div class="insurance-icon domestic">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                  <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+              </div>
+              <h3 class="insurance-title">تأمين المنزل</h3>
+            </a>
+
+            <!-- Medical Insurance -->
+            <a href="/ar/medical" class="insurance-card">
+              <div class="insurance-icon medical">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                </svg>
+              </div>
+              <h3 class="insurance-title">التأمين الطبي</h3>
+            </a>
+
+            <!-- Credit Life -->
+            <a href="/ar/life" class="insurance-card">
+              <div class="insurance-icon credit">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                  <line x1="1" y1="10" x2="23" y2="10"/>
+                </svg>
+              </div>
+              <h3 class="insurance-title">تأمين القروض</h3>
+            </a>
+
+            <!-- Marine Insurance -->
+            <a href="/ar/contact" class="insurance-card">
+              <div class="insurance-icon marine">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 20a2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 2-1 2.4 2.4 0 0 1 2 1 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1 2.4 2.4 0 0 1 2-1 2.4 2.4 0 0 1 2 1 2.4 2.4 0 0 0 2 1 2.4 2.4 0 0 0 2-1"/>
+                  <path d="M2 17 22 9M4 10l18-8M6 13l18-8"/>
+                </svg>
+              </div>
+              <h3 class="insurance-title">التأمين البحري</h3>
+            </a>
+
+            <!-- Personal Accident -->
+            <a href="/ar/contact" class="insurance-card">
+              <div class="insurance-icon accident">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                  <path d="M12 14v7"/>
+                  <path d="m9 18 3-3 3 3"/>
+                </svg>
+              </div>
+              <h3 class="insurance-title">الحوادث الشخصية</h3>
+            </a>
+
+            <!-- Get Quick Quotes - Hub -->
+            <a href="https://hub.ameen.insure" target="_blank" rel="noopener" class="insurance-card hub-card">
+              <div class="insurance-icon hub-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                </svg>
+              </div>
+              <h3 class="insurance-title">احصل على عروض سريعة</h3>
+            </a>
           </div>
         </div>
       </div>
@@ -47,89 +127,47 @@ const t = (key: string, options?: any) => i18next.t(key, options);
       document.addEventListener('astro:page-load', setHeroPlaybackRate);
     </script>
 
-    <!-- Intro Section -->
-    <section class="section intro">
-      <div class="container">
-        <h2 class="section-title">{t("intro.title", { ns: "home" })}</h2>
-        <p class="section-description">{t("intro.description", { ns: "home" })}</p>
-        <a href="/ar/about" class="btn btn-outline">{t("cta.learnMore")}</a>
-      </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="section services">
-      <div class="container">
-        <h2 class="section-title">{t("services.title", { ns: "home" })}</h2>
-        <p class="section-description">{t("services.description", { ns: "home" })}</p>
-        
-        <div class="services-grid">
-          <!-- Personal -->
-          <div class="service-card">
-            <div class="service-icon">👤</div>
-            <h3>{t("services.personal.title", { ns: "home" })}</h3>
-            <ul>
-              <li>التأمين على الحياة</li>
-              <li>الطبي</li>
-              <li>السيارات</li>
-              <li>المنزل</li>
-              <li>السفر</li>
-            </ul>
-            <a href="/ar/personal" class="btn btn-outline">{t("cta.explore")}</a>
-          </div>
-
-          <!-- Corporate -->
-          <div class="service-card">
-            <div class="service-icon">🏢</div>
-            <h3>{t("services.corporate.title", { ns: "home" })}</h3>
-            <ul>
-              <li>الممتلكات والحوادث</li>
-              <li>الطبي الجماعي والحياة</li>
-              <li>البحري</li>
-              <li>المسؤولية والمخاطر</li>
-              <li>مزايا الموظفين</li>
-            </ul>
-            <a href="/ar/corporate" class="btn btn-outline">{t("cta.explore")}</a>
-          </div>
-
-          <!-- Advisory -->
-          <div class="service-card">
-            <div class="service-icon">💼</div>
-            <h3>{t("services.advisory.title", { ns: "home" })}</h3>
-            <ul>
-              <li>خطط مخصصة</li>
-              <li>تدقيق التأمين</li>
-              <li>تقييم المخاطر</li>
-              <li>الاتصال التأميني الدولي</li>
-              <li>الدفاع عن المطالبات</li>
-            </ul>
-            <a href="/ar/advisory" class="btn btn-outline">{t("cta.explore")}</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Values Section -->
-    <section class="section values">
-      <div class="container">
-        <h2 class="section-title">{t("values.title", { ns: "home" })}</h2>
-        <p class="section-description">{t("values.description", { ns: "home" })}</p>
-        <a href="/ar/about#values" class="btn btn-primary">{t("cta.learnMore")}</a>
-      </div>
-    </section>
-
     <!-- Strategic Alliances Section -->
     <section class="section alliances">
       <div class="container">
         <h2 class="section-title">{t("alliances.title", { ns: "home" })}</h2>
         <div class="alliances-grid">
-          <div class="alliance-logo">OQIC</div>
-          <div class="alliance-logo">Liva Insurance</div>
-          <div class="alliance-logo">Damana</div>
-          <div class="alliance-logo">GIG</div>
-          <div class="alliance-logo">New India</div>
-          <div class="alliance-logo">Al Madina Takaful</div>
-          <div class="alliance-logo">Dhofar Insurance</div>
-          <div class="alliance-logo">Takaful Oman</div>
+          <div class="alliance-logo">
+            <img src="/images/alliances/oqic.png" alt="شعار OQIC" loading="lazy" />
+          </div>
+          <div class="alliance-logo">
+            <img src="/images/alliances/liva.png" alt="شعار Liva Insurance" loading="lazy" />
+          </div>
+          <div class="alliance-logo">
+            <img src="/images/alliances/damana.png" alt="شعار Damana Insurance" loading="lazy" />
+          </div>
+          <div class="alliance-logo">
+            <img src="/images/alliances/gig.png" alt="شعار GIG Insurance" loading="lazy" />
+          </div>
+          <div class="alliance-logo">
+            <img src="/images/alliances/new-india.png" alt="شعار New India Assurance" loading="lazy" />
+          </div>
+          <div class="alliance-logo">
+            <img src="/images/alliances/al-madina-takaful.png" alt="شعار Al Madina Takaful" loading="lazy" />
+          </div>
+          <div class="alliance-logo">
+            <img src="/images/alliances/dhofar.png" alt="شعار Dhofar Insurance" loading="lazy" />
+          </div>
+          <div class="alliance-logo">
+            <img src="/images/alliances/takaful-oman.png" alt="شعار Takaful Oman Insurance" loading="lazy" />
+          </div>
+          <div class="alliance-logo">
+            <img src="/images/alliances/orient.png" alt="شعار Orient Insurance" loading="lazy" />
+          </div>
+          <div class="alliance-logo">
+            <img src="/images/alliances/falcon-arabia.png" alt="شعار Falcon Arabia Insurance" loading="lazy" />
+          </div>
+          <div class="alliance-logo">
+            <img src="/images/alliances/iran-insurance.png" alt="شعار Iran Insurance" loading="lazy" />
+          </div>
+          <div class="alliance-logo">
+            <img src="/images/alliances/muscat-insurance.png" alt="شعار Muscat Insurance Company" loading="lazy" />
+          </div>
         </div>
       </div>
     </section>
@@ -180,7 +218,7 @@ const t = (key: string, options?: any) => i18next.t(key, options);
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(120deg, rgba(15, 23, 42, 0.7) 0%, rgba(15, 23, 42, 0.35) 55%, rgba(15, 23, 42, 0.7) 100%);
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 41, 59, 0.85) 50%, rgba(15, 23, 42, 0.92) 100%);
     z-index: 1;
   }
 
@@ -191,35 +229,172 @@ const t = (key: string, options?: any) => i18next.t(key, options);
     justify-content: center;
     align-items: center;
     width: 100%;
-    text-align: center;
+    padding: 4rem 0;
   }
 
-  .hero-text {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    max-width: 900px;
-    align-items: center;
-  }
-
-  .hero-eyebrow {
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.85);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    font-size: 0.9rem;
+  .hero-offers {
+    width: 100%;
+    max-width: 1400px;
   }
 
   .hero-title {
-    font-size: clamp(3rem, 7vw, 5.25rem);
+    font-size: clamp(2rem, 5vw, 3rem);
     color: #ffffff;
-    text-shadow: 0 12px 30px rgba(15, 23, 42, 0.45);
+    text-align: right;
+    margin-bottom: 2.5rem;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    font-weight: 700;
   }
 
-  .hero-description {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
-    line-height: 1.8;
+  .insurance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .insurance-card {
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .insurance-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+  }
+
+  .insurance-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  }
+
+  .insurance-card:hover::before {
+    opacity: 0.05;
+  }
+
+  .insurance-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+  }
+
+  .insurance-card:hover .insurance-icon {
+    transform: scale(1.1);
+  }
+
+  .insurance-icon svg {
+    width: 36px;
+    height: 36px;
+    stroke-width: 2.5;
+  }
+
+  .insurance-icon.motor-special {
+    background: transparent;
+    width: 110px;
+    height: 110px;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .insurance-icon.motor-special img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+  }
+
+  .insurance-card:hover .insurance-icon.motor-special {
+    transform: scale(1.05);
+  }
+
+  .insurance-icon.travel {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: white;
+  }
+
+  .insurance-icon.domestic,
+  .insurance-icon.home {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+  }
+
+  .insurance-icon.medical {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+  }
+
+  .insurance-icon.credit {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+  }
+
+  .insurance-icon.marine {
+    background: linear-gradient(135deg, #0ea5e9, #0284c7);
+    color: white;
+  }
+
+  .insurance-icon.accident {
+    background: linear-gradient(135deg, #ec4899, #db2777);
+    color: white;
+  }
+
+  .insurance-icon.hub-icon {
+    background: linear-gradient(135deg, #C9A961, #B8963F);
+    color: white;
+  }
+
+  .hub-card {
+    background: linear-gradient(135deg, #C9A961, #B8963F);
+    border: none;
+  }
+
+  .hub-card:hover {
+    background: linear-gradient(135deg, #B8963F, #A6802E);
+    transform: translateY(-10px) scale(1.02);
+  }
+
+  .hub-card .insurance-title {
+    color: white;
+    font-weight: 700;
+  }
+
+  .insurance-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .insurance-price {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+  }
     text-shadow: 0 10px 24px rgba(15, 23, 42, 0.35);
   }
 
@@ -367,13 +542,24 @@ const t = (key: string, options?: any) => i18next.t(key, options);
 
   .alliance-logo {
     background-color: white;
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 0.5rem;
     text-align: center;
     font-weight: 600;
     color: var(--color-primary);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+    height: 120px;
+  }
+
+  .alliance-logo img {
+    max-height: 60px;
+    width: auto;
+    object-fit: contain;
   }
 
   .alliance-logo:hover {
@@ -402,38 +588,18 @@ const t = (key: string, options?: any) => i18next.t(key, options);
 
   @media (max-width: 1024px) {
     .hero {
-      padding: 4rem 0;
+      min-height: auto;
+      padding: 3rem 0;
     }
 
-    .hero-grid {
-      grid-template-columns: 1fr;
-      justify-items: center;
-    }
-
-    .hero-media {
-      order: 0;
-      justify-content: center;
-    }
-
-    .hero-text {
-      order: 1;
+    .hero-title {
       text-align: center;
-      align-items: center;
-      margin: 0 auto;
+      margin-bottom: 2rem;
     }
 
-    .hero-cta {
-      justify-content: center;
-    }
-
-    .tv-frame {
-      width: min(92vw, 520px);
-      border-radius: 18px;
-      padding: 8px;
-    }
-
-    .tv-inner {
-      border-radius: 14px;
+    .insurance-grid {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
     }
 
     .services-grid {
@@ -442,6 +608,45 @@ const t = (key: string, options?: any) => i18next.t(key, options);
 
     .alliances-grid {
       grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      min-height: auto;
+    }
+
+    .hero-content {
+      padding: 2.5rem 0;
+    }
+
+    .insurance-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .insurance-card {
+      padding: 1.25rem 0.75rem;
+    }
+
+    .insurance-icon {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 0.75rem;
+    }
+
+    .insurance-icon.motor-special {
+      width: 90px;
+      height: 90px;
+    }
+
+    .insurance-icon svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .insurance-title {
+      font-size: 0.9rem;
     }
   }
 </style>
