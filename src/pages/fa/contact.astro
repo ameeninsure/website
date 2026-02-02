@@ -1,0 +1,44 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import i18next from "../../lib/i18n";
+
+await i18next.changeLanguage("fa");
+---
+
+<Layout title="تماس با ما" lang="fa">
+  <Header lang="fa" />
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>تماس با ما</h1>
+        <p>با تیم ما برای مشاوره یا پیشنهاد سفارشی تماس بگیرید.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container two-col">
+        <div>
+          <h2 class="section-title-alt">اطلاعات تماس</h2>
+          <p class="muted">ما در یک روز کاری پاسخ می‌دهیم.</p>
+          <div style="margin-top:1rem;">
+            <p><strong>تلفن:</strong> +968 76888817</p>
+            <p><strong>ایمیل:</strong> info@ameen.me</p>
+            <p><strong>آدرس:</strong> مسقط، عمان</p>
+          </div>
+        </div>
+        <form class="card form">
+          <input type="text" placeholder="نام کامل" aria-label="نام کامل" />
+          <input type="email" placeholder="ایمیل" aria-label="ایمیل" />
+          <input type="tel" placeholder="شماره تلفن" aria-label="شماره تلفن" />
+          <textarea placeholder="چگونه می‌توانیم به شما کمک کنیم؟" aria-label="پیام"></textarea>
+          <button type="submit" class="btn btn-primary">ارسال پیام</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="fa" />
+</Layout>

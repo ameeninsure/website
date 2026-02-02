@@ -16,7 +16,7 @@ const pageDescription = description || i18next.t("site.description");
 ---
 
 <!doctype html>
-<html lang={lang} dir={lang === "ar" ? "rtl" : "ltr"}>
+<html lang={lang} dir={lang === "ar" || lang === "fa" ? "rtl" : "ltr"}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={pageDescription} />
@@ -73,6 +73,10 @@ const pageDescription = description || i18next.t("site.description");
   }
 
   html:lang(ar) {
+    font-family: 'Vazirmatn', sans-serif;
+  }
+
+  html:lang(fa) {
     font-family: 'Vazirmatn', sans-serif;
   }
 

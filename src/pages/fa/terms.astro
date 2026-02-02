@@ -1,0 +1,57 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import i18next from "../../lib/i18n";
+
+await i18next.changeLanguage("fa");
+---
+
+<Layout title="شرایط و ضوابط" lang="fa">
+  <Header lang="fa" />
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>شرایط و ضوابط</h1>
+        <p>استفاده از این وب‌سایت به معنای پذیرش شرایط زیر است.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container">
+        <h2 class="section-title-alt">پذیرش شرایط</h2>
+        <p class="muted">با استفاده از وب‌سایت امین، شما با این شرایط و ضوابط و هرگونه به‌روزرسانی‌های منتشر شده موافقت می‌کنید.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">صلاحیت و دقت اطلاعات</h2>
+        <p class="muted">خدمات برای افراد ۱۸ سال به بالا در عمان است. شما متعهد می‌شوید اطلاعات صحیح و به‌روز هنگام درخواست پیشنهاد یا خرید پوشش ارائه دهید.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">محدوده خدمات</h2>
+        <p class="muted">امین یک کارگزار بیمه دارای مجوز است. پیشنهادات و بیمه‌نامه‌ها توسط شرکت‌های بیمه صادر می‌شوند و تابع شرایط، استثنائات و تأییدیه‌های بیمه‌گری آن‌ها هستند.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">پیشنهادات، خرید و شروع پوشش</h2>
+        <p class="muted">قیمت‌ها و موجودی ممکن است بر اساس جزئیات ریسک و قوانین شرکت‌های بیمه تغییر کند. پوشش فقط پس از صدور بیمه‌نامه و تأیید فعال‌سازی توسط شرکت بیمه شروع می‌شود، مگر اینکه خلاف آن ذکر شود.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">لغو و استرداد</h2>
+        <p class="muted">اگر بیمه‌نامه هنوز صادر نشده، مبلغ کامل برگردانده می‌شود. اگر بیمه‌نامه صادر شده، استرداد (در صورت وجود) تابع سیاست شرکت بیمه و هزینه‌های قابل اجرا است. برخی محصولات مانند بیمه مسافرت جاری ممکن است پس از شروع اعتبار قابل استرداد نباشند.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">استفاده ممنوع</h2>
+        <p class="muted">سوءاستفاده از سایت یا تلاش برای دسترسی غیرمجاز یا جمع‌آوری خودکار داده‌ها به نحوی که به سلامت خدمات آسیب برساند ممنوع است.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">لینک‌های شخص ثالث</h2>
+        <p class="muted">سایت ممکن است شامل لینک‌هایی به طرف‌های خارجی باشد. امین مسئول محتوا یا سیاست‌های آن‌ها نیست.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">مسئولیت</h2>
+        <p class="muted">محتوا همان‌طور که هست بدون ضمانت ارائه می‌شود و امین هیچ مسئولیتی در قبال خسارات ناشی از استفاده از سایت یا اتکا به محتوای آن ندارد.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">قانون حاکم</h2>
+        <p class="muted">این شرایط تابع قوانین عمان است و دادگاه‌های آن صلاحیت رسیدگی به هرگونه اختلاف را دارند.</p>
+
+        <h2 class="section-title-alt" style="margin-top:1.5rem;">تماس با ما</h2>
+        <p class="muted">برای سؤالات: info@ameen.me یا ‎+968 76888817.</p>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="fa" />
+</Layout>

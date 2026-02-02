@@ -7,8 +7,8 @@ const currentPath = Astro.url.pathname;
 await i18next.changeLanguage(lang);
 const t = (key: string) => i18next.t(key);
 
-const isArabic = lang === "ar";
-const homeLink = isArabic ? "/ar" : "/";
+const isRTL = lang === "ar" || lang === "fa";
+const homeLink = lang === "ar" ? "/ar" : lang === "fa" ? "/fa" : "/";
 ---
 
 <header class="header">

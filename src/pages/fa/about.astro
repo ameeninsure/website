@@ -1,0 +1,67 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import i18next from "../../lib/i18n";
+
+await i18next.changeLanguage("fa");
+---
+
+<Layout title="درباره امین" lang="fa">
+  <Header lang="fa" />
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>درباره امین</h1>
+        <p>میراث محافظت‌شده. آینده تضمین‌شده. امین هویت تکامل‌یافته شرکت خدمات مدیریت بیمه رگال از سال ۲۰۱۰ است.</p>
+      </div>
+    </section>
+
+    <section class="page-content">
+      <div class="container two-col">
+        <div>
+          <h2 class="section-title-alt">ما کیستیم</h2>
+          <p class="muted">ما یک شرکت کارگزاری بیمه دارای مجوز در عمان هستیم که راه‌حل‌های شفاف، قابل اعتماد و سفارشی برای افراد و شرکت‌ها ارائه می‌دهیم.</p>
+          <div class="badge-list" style="margin-top:1rem;">
+            <span class="badge">کارگزار دارای مجوز</span>
+            <span class="badge">از سال ۲۰۱۰</span>
+            <span class="badge">عمان</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>مأموریت ما</h3>
+          <p>محافظت از آنچه برایتان مهم است با پوشش‌های قابل اعتماد، مشاوره صادقانه و پشتیبانی مؤثر در خسارت.</p>
+          <h3 style="margin-top:1rem;">چشم‌انداز ما</h3>
+          <p>تبدیل شدن به معتمدترین شریک بیمه‌ای در عمان از طریق حرفه‌ای‌گری، صداقت و نوآوری.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-content" id="values">
+      <div class="container">
+        <h2 class="section-title-alt">ارزش‌های ما</h2>
+        <div class="card-grid">
+          <div class="card">
+            <h3>صداقت</h3>
+            <p>راهنمایی واضح و صادقانه در هر تصمیم.</p>
+          </div>
+          <div class="card">
+            <h3>اعتماد</h3>
+            <p>مشارکت‌های بلندمدت با مشتریان و شرکت‌های بیمه.</p>
+          </div>
+          <div class="card">
+            <h3>شفافیت</h3>
+            <p>بدون غافلگیری، بدون شرایط پنهان.</p>
+          </div>
+          <div class="card">
+            <h3>تخصص</h3>
+            <p>اتحادهای استراتژیک و تخصص محلی قابل اعتماد.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="fa" />
+</Layout>

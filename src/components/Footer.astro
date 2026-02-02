@@ -5,18 +5,24 @@ const { lang } = Astro.props;
 await i18next.changeLanguage(lang);
 const t = (key: string, options?: any) => i18next.t(key, options);
 
-const aboutLink = lang === "ar" ? "/ar/about" : "/about";
-const contactLink = lang === "ar" ? "/ar/contact" : "/contact";
-const supportLink = lang === "ar" ? "/ar/support" : "/support";
-const advisoryLink = lang === "ar" ? "/ar/advisory" : "/advisory";
-const insightsLink = lang === "ar" ? "/ar/insights" : "/insights";
+const langPrefix = lang === "en" ? "" : `/${lang}`;
+const aboutLink = `${langPrefix}/about`;
+const contactLink = `${langPrefix}/contact`;
+const supportLink = `${langPrefix}/support`;
+const advisoryLink = `${langPrefix}/advisory`;
+const insightsLink = `${langPrefix}/insights`;
+const termsLink = `${langPrefix}/terms`;
+const privacyLink = `${langPrefix}/privacy`;
 
-const importantTitle = lang === "ar" ? "صفحات مهمة" : "Important Pages";
-const ctaTitle = lang === "ar" ? "الدعم" : "Support";
+const importantTitle = lang === "ar" ? "صفحات مهمة" : lang === "fa" ? "صفحات مهم" : "Important Pages";
+const ctaTitle = lang === "ar" ? "الدعم" : lang === "fa" ? "پشتیبانی" : "Support";
 const ctaDescription =
   lang === "ar"
     ? "فريقنا جاهز لمساعدتك والإجابة عن استفساراتك في أي وقت."
+    : lang === "fa"
+    ? "تیم ما آماده کمک به شما و پاسخ به سؤالات شما در هر زمان است."
     : "Our team is here to help you and answer your questions anytime.";
+const supportBtnText = lang === "ar" ? "الدعم" : lang === "fa" ? "پشتیبانی" : "Support";
 ---
 
 <footer class="footer">
@@ -25,7 +31,7 @@ const ctaDescription =
       <div class="footer-section footer-cta">
         <h4>{ctaTitle}</h4>
         <p class="footer-text">{ctaDescription}</p>
-        <a class="footer-cta-btn" href={supportLink}>{lang === "ar" ? "الدعم" : "Support"}</a>
+        <a class="footer-cta-btn" href={supportLink}>{supportBtnText}</a>
       </div>
 
       <div class="footer-section footer-quick-links">
@@ -49,9 +55,9 @@ const ctaDescription =
         <p>{t("footer.company")}</p>
       </div>
       <div class="footer-links">
-        <a href={lang === "ar" ? "/ar/terms" : "/terms"}>{t("footer.terms")}</a>
+        <a href={termsLink}>{t("footer.terms")}</a>
         <span>|</span>
-        <a href={lang === "ar" ? "/ar/privacy" : "/privacy"}>{t("footer.privacy")}</a>
+        <a href={privacyLink}>{t("footer.privacy")}</a>
       </div>
     </div>
 
