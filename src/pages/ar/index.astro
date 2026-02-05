@@ -10,18 +10,18 @@ i18next.changeLanguage("ar");
 const t = (key: string, options?: any) => i18next.t(key, options);
 
 const alliances = [
-  { logo: "/images/alliances/oqic.png", alt: "شعار OQIC" },
-  { logo: "/images/alliances/liva.png", alt: "شعار Liva Insurance" },
-  { logo: "/images/alliances/damana.png", alt: "شعار Damana Insurance" },
-  { logo: "/images/alliances/gig.png", alt: "شعار GIG Insurance" },
-  { logo: "/images/alliances/new-india.png", alt: "شعار New India Assurance" },
-  { logo: "/images/alliances/al-madina-takaful.png", alt: "شعار Al Madina Takaful" },
-  { logo: "/images/alliances/dhofar.png", alt: "شعار Dhofar Insurance" },
-  { logo: "/images/alliances/takaful-oman.png", alt: "شعار Takaful Oman Insurance" },
-  { logo: "/images/alliances/orient.png", alt: "شعار Orient Insurance" },
-  { logo: "/images/alliances/falcon-arabia.png", alt: "شعار Falcon Arabia Insurance" },
-  { logo: "/images/alliances/iran-insurance.png", alt: "شعار Iran Insurance" },
-  { logo: "/images/alliances/muscat-insurance.png", alt: "شعار Muscat Insurance Company" },
+  { logo: "/images/alliances/oqic.png", alt: "شعار OQIC", slug: "oqic" },
+  { logo: "/images/alliances/liva.png", alt: "شعار Liva Insurance", slug: "liva" },
+  { logo: "/images/alliances/damana.png", alt: "شعار Damana Insurance", slug: "damana" },
+  { logo: "/images/alliances/gig.png", alt: "شعار GIG Insurance", slug: "gig" },
+  { logo: "/images/alliances/new-india.png", alt: "شعار New India Assurance", slug: "new-india" },
+  { logo: "/images/alliances/al-madina-takaful.png", alt: "شعار Al Madina Takaful", slug: "al-madina-takaful" },
+  { logo: "/images/alliances/dhofar.png", alt: "شعار Dhofar Insurance", slug: "dhofar" },
+  { logo: "/images/alliances/takaful-oman.png", alt: "شعار Takaful Oman Insurance", slug: "takaful-oman" },
+  { logo: "/images/alliances/orient.png", alt: "شعار Orient Insurance", slug: "orient" },
+  { logo: "/images/alliances/falcon-arabia.png", alt: "شعار Falcon Arabia Insurance", slug: "falcon-arabia" },
+  { logo: "/images/alliances/iran-insurance.png", alt: "شعار Iran Insurance", slug: "iran-insurance" },
+  { logo: "/images/alliances/muscat-insurance.png", alt: "شعار Muscat Insurance Company", slug: "muscat-insurance" },
 ];
 ---
 
@@ -128,7 +128,7 @@ const alliances = [
     <section class="section alliances">
       <div class="container">
         <h2 class="section-title">{t("alliances.title", { ns: "home" })}</h2>
-        <AlliancesCarousel alliances={alliances} isRTL={true} client:load />
+        <AlliancesCarousel alliances={alliances} isRTL={true} lang="ar" client:load />
       </div>
     </section>
 

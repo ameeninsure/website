@@ -5,14 +5,20 @@ import './AlliancesCarousel.css';
 interface Alliance {
   logo: string;
   alt: string;
+  slug: string;
 }
 
 interface AlliancesCarouselProps {
   alliances: Alliance[];
   isRTL?: boolean;
+  lang?: string;
 }
 
-export default function AlliancesCarousel({ alliances, isRTL = false }: AlliancesCarouselProps) {
+export default function AlliancesCarousel({ alliances, isRTL = false, lang = 'en' }: AlliancesCarouselProps) {
+  const getPartnerUrl = (slug: string) => {
+    if (lang === 'en') return `/partners/${slug}`;
+    return `/${lang}/partners/${slug}`;
+  };
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: false,
     align: 'start',
@@ -49,9 +55,9 @@ export default function AlliancesCarousel({ alliances, isRTL = false }: Alliance
         <div className="embla__container">
           {alliances.map((alliance, index) => (
             <div className="embla__slide" key={index}>
-              <div className="alliance-logo">
+              <a href={getPartnerUrl(alliance.slug)} className="alliance-logo">
                 <img src={alliance.logo} alt={alliance.alt} loading="lazy" />
-              </div>
+              </a>
             </div>
           ))}
         </div>

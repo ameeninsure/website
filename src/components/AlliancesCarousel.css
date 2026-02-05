@@ -37,6 +37,8 @@
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .embla__slide .alliance-logo:hover {
