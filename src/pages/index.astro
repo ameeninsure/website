@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import AlliancesCarousel from "../components/AlliancesCarousel.tsx";
+import AchievementsCarousel from "../components/AchievementsCarousel.tsx";
 import i18next from "../lib/i18n";
 import { FiActivity, FiAnchor, FiCreditCard, FiHome, FiUser, FiZap } from "react-icons/fi";
 
@@ -23,6 +24,12 @@ const alliances = [
   { logo: "/images/alliances/iran-insurance.png", alt: "Iran Insurance logo", slug: "iran-insurance" },
   { logo: "/images/alliances/muscat-insurance.png", alt: "Muscat Insurance Company logo", slug: "muscat-insurance" },
 ];
+
+const achievementImages = [
+  { src: "/images/aw.png", alt: "Ameen achievement award" },
+  { src: "/images/oq.png", alt: "Ameen achievement recognition" },
+  { src: "/images/oq1.png", alt: "Ameen achievement certificate" },
+];
 ---
 
 <Layout title={String(t("site.title"))} lang="en">
@@ -30,7 +37,7 @@ const alliances = [
   
   <main>
     <!-- Hero Section -->
-    <section class="hero" aria-label="Quick Insurance Offers">
+    <section class="hero-main" aria-label="Ameen Insurance Services">
       <video
         class="hero-video"
         src="/file.mp4"
@@ -41,9 +48,47 @@ const alliances = [
         preload="metadata"
       ></video>
       <div class="hero-overlay" aria-hidden="true"></div>
-      <div class="container hero-content">
-        <div class="hero-offers">
-          <h1 class="hero-title">Get Quick Insurance Offers</h1>
+      <div class="container hero-main-content">
+        <div class="hero-text">
+          <p class="hero-tagline">Legacy Secured | Future Assured</p>
+          <h1 class="hero-main-title">Regal Insurance<br/>Management Services</h1>
+          <p class="hero-since">Protecting Since 2010</p>
+          <a href="/about" class="btn btn-hero">Discover Our Story</a>
+        </div>
+      </div>
+    </section>
+    <script type="module">
+      const setHeroPlaybackRate = () => {
+        const video = document.querySelector('.hero-main .hero-video');
+        if (video) {
+          video.playbackRate = 0.6;
+        }
+      };
+
+      setHeroPlaybackRate();
+      document.addEventListener('astro:page-load', setHeroPlaybackRate);
+    </script>
+
+    <!-- Achievements Section -->
+    <section class="section achievements">
+      <div class="container achievements-content">
+        <div class="achievements-text">
+          <p class="achievements-eyebrow">committed to your peace of mind</p>
+          <p class="achievements-body">
+            Ameen, the evolved identity of Regal Insurance Management Services LLC, has served Oman since 2010. With 15+ years of expertise, we deliver transparent, reliable insurance for individuals and corporates.
+          </p>
+        </div>
+        <div class="achievements-carousel">
+          <AchievementsCarousel images={achievementImages} client:load />
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Insurance Offers Section -->
+    <section class="quick-offers" aria-label="Quick Insurance Offers">
+      <div class="container">
+        <div class="offers-wrapper">
+          <h2 class="offers-title">Get Quick Insurance Offers</h2>
           <div class="insurance-grid">
             <!-- Motor Insurance -->
             <a href="/motor" class="insurance-card">
@@ -112,17 +157,6 @@ const alliances = [
         </div>
       </div>
     </section>
-    <script type="module">
-      const setHeroPlaybackRate = () => {
-        const video = document.querySelector('.hero .hero-video');
-        if (video) {
-          video.playbackRate = 0.6;
-        }
-      };
-
-      setHeroPlaybackRate();
-      document.addEventListener('astro:page-load', setHeroPlaybackRate);
-    </script>
 
     <!-- Strategic Alliances Section -->
     <section class="section alliances">
@@ -146,8 +180,8 @@ const alliances = [
 </Layout>
 
 <style>
-  /* Hero Section */
-  .hero {
+  /* Hero Main Section */
+  .hero-main {
     position: relative;
     min-height: 100vh;
     display: flex;
@@ -174,7 +208,7 @@ const alliances = [
     z-index: 1;
   }
 
-  .hero-content {
+  .hero-main-content {
     position: relative;
     z-index: 2;
     display: flex;
@@ -184,18 +218,107 @@ const alliances = [
     padding: 4rem 1.5rem;
   }
 
-  .hero-offers {
-    width: 100%;
+  .hero-text {
+    text-align: center;
+    max-width: 900px;
+  }
+
+  .hero-tagline {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    color: #C9A961;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+  }
+
+  .hero-main-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .hero-since {
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+  }
+
+  .btn-hero {
+    display: inline-block;
+    background: linear-gradient(135deg, #C9A961, #B8963F);
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(201, 169, 97, 0.3);
+  }
+
+  .btn-hero:hover {
+    background: linear-gradient(135deg, #B8963F, #A6802E);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(201, 169, 97, 0.4);
+  }
+
+  /* Achievements Section */
+  .achievements {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    padding: 4rem 0;
+  }
+
+  .achievements-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+
+  .achievements-text {
+    flex: 1;
+    color: white;
+  }
+
+  .achievements-eyebrow {
+    font-size: 0.95rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .achievements-body {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  .achievements-carousel {
+    flex: 1;
+  }
+
+  /* Quick Offers Section */
+  .quick-offers {
+    background: var(--color-bg-light);
+    padding: 5rem 0;
+  }
+
+  .offers-wrapper {
     max-width: 1200px;
     margin: 0 auto;
   }
 
-  .hero-title {
-    font-size: clamp(2rem, 5vw, 3rem);
-    color: #ffffff;
-    text-align: left;
-    margin-bottom: 2.5rem;
-    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  .offers-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 3rem;
     font-weight: 700;
   }
 
@@ -206,9 +329,7 @@ const alliances = [
   }
 
   .insurance-card {
-    background: rgba(255, 255, 255, 0.86);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: white;
     border-radius: 16px;
     padding: 1.35rem 1.05rem;
     display: flex;
@@ -232,9 +353,8 @@ const alliances = [
     z-index: 0;
   }
 
-
   .insurance-card:hover {
-    transform: none;
+    transform: translateY(-5px);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
   }
 
@@ -534,14 +654,13 @@ const alliances = [
   }
 
   @media (max-width: 1024px) {
-    .hero {
-      min-height: auto;
-      padding: 3rem 0;
+    .hero-main {
+      min-height: 80vh;
     }
 
-    .hero-title {
+    .achievements-content {
+      flex-direction: column;
       text-align: center;
-      margin-bottom: 2rem;
     }
 
     .insurance-grid {
@@ -559,12 +678,24 @@ const alliances = [
   }
 
   @media (max-width: 768px) {
-    .hero {
-      min-height: auto;
+    .hero-main {
+      min-height: 70vh;
     }
 
-    .hero-content {
+    .hero-tagline {
+      letter-spacing: 2px;
+    }
+
+    .hero-main-content {
       padding: 2.5rem 1rem;
+    }
+
+    .achievements-content {
+      gap: 2rem;
+    }
+
+    .quick-offers {
+      padding: 3rem 0;
     }
 
     .insurance-grid {
