@@ -38,48 +38,12 @@ const achievementImages = [
   <main>
     <!-- Hero Section -->
     <section class="hero-main" dir="rtl" aria-label="خدمات أمين للتأمين">
-      <video
-        class="hero-video"
-        src="/file.mp4"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="metadata"
-      ></video>
-      <div class="hero-overlay" aria-hidden="true"></div>
       <div class="container hero-main-content">
         <div class="hero-text">
-          <p class="hero-tagline">إرث مؤمّن | مستقبل مضمون</p>
-          <h1 class="hero-main-title">خدمات أمين الملكية<br/>لإدارة التأمين</h1>
-          <p class="hero-since">نحميكم منذ عام 2010</p>
-          <a href="/ar/about" class="btn btn-hero">اكتشف قصتنا</a>
-        </div>
-      </div>
-    </section>
-    <script type="module">
-      const setHeroPlaybackRate = () => {
-        const video = document.querySelector('.hero-main .hero-video');
-        if (video) {
-          video.playbackRate = 0.6;
-        }
-      };
-
-      setHeroPlaybackRate();
-      document.addEventListener('astro:page-load', setHeroPlaybackRate);
-    </script>
-
-    <!-- Achievements Section -->
-    <section class="section achievements" dir="rtl">
-      <div class="container achievements-content">
-        <div class="achievements-text">
-          <p class="achievements-eyebrow">committed to your peace of mind</p>
-          <p class="achievements-body">
-            Ameen, the evolved identity of Regal Insurance Management Services LLC, has served Oman since 2010. With 15+ years of expertise, we deliver transparent, reliable insurance for individuals and corporates.
-          </p>
-        </div>
-        <div class="achievements-carousel">
-          <AchievementsCarousel images={achievementImages} isRTL={true} client:load />
+          <p class="hero-tagline">أمانك. التزامنا.</p>
+          <h1 class="hero-main-title">حلول تأمينية شاملة</h1>
+          <p class="hero-since">موثوق في عُمان منذ عام 2010</p>
+          <a href="/ar/about" class="btn btn-hero">استكشف خدماتنا</a>
         </div>
       </div>
     </section>
@@ -158,6 +122,21 @@ const achievementImages = [
       </div>
     </section>
 
+    <!-- Achievements Section -->
+    <section class="section achievements" dir="rtl">
+      <div class="container achievements-content">
+        <div class="achievements-text">
+          <p class="achievements-eyebrow">committed to your peace of mind</p>
+          <p class="achievements-body">
+            Ameen, the evolved identity of Regal Insurance Management Services LLC, has served Oman since 2010. With 15+ years of expertise, we deliver transparent, reliable insurance for individuals and corporates.
+          </p>
+        </div>
+        <div class="achievements-carousel">
+          <AchievementsCarousel images={achievementImages} isRTL={true} client:load />
+        </div>
+      </div>
+    </section>
+
     <!-- Strategic Alliances Section -->
     <section class="section alliances">
       <div class="container">
@@ -182,35 +161,29 @@ const achievementImages = [
 <style>
   /* Hero Main Section */
   .hero-main {
-    position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    background: linear-gradient(160deg, #1a365d 0%, #2c5282 60%, #1e3a5f 100%);
     color: #ffffff;
+    position: relative;
+    overflow: hidden;
   }
 
-  .hero-video {
+  .hero-main::before {
+    content: '';
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    z-index: 0;
-  }
-
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 41, 59, 0.85) 50%, rgba(15, 23, 42, 0.92) 100%);
-    z-index: 1;
+    background:
+      radial-gradient(ellipse 60% 50% at 20% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 90% 80%, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+    pointer-events: none;
   }
 
   .hero-main-content {
     position: relative;
-    z-index: 2;
+    z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -220,49 +193,51 @@ const achievementImages = [
 
   .hero-text {
     text-align: center;
-    max-width: 900px;
+    width: 100%;
   }
 
   .hero-tagline {
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
-    color: var(--color-accent);
-    margin-bottom: 1rem;
-    letter-spacing: 0.15em;
+    font-size: clamp(0.75rem, 1.8vw, 1.4rem);
+    color: #C9A961;
     text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 1.5rem;
     font-weight: 500;
   }
 
   .hero-main-title {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-size: clamp(0.9rem, 4vw, 3.5rem);
     color: #ffffff;
     margin-bottom: 1.5rem;
     text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     font-weight: 700;
     line-height: 1.2;
+    white-space: nowrap;
   }
 
   .hero-since {
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 2rem;
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 2.5rem;
+    font-weight: 400;
   }
 
   .btn-hero {
-    display: inline-block;
-    padding: 1rem 2.5rem;
-    background: linear-gradient(135deg, var(--color-accent), #B8963F);
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-accent);
+    color: #1a202c;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
     font-weight: 600;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(201, 169, 97, 0.4);
+    text-decoration: none;
+    transition: transform 0.2s ease, background 0.2s ease;
   }
 
   .btn-hero:hover {
+    background: #c9a020;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(201, 169, 97, 0.5);
   }
 
   /* Achievements Section */
@@ -281,7 +256,6 @@ const achievementImages = [
   .achievements-text {
     flex: 1;
     color: white;
-    text-align: start;
   }
 
   .achievements-eyebrow {
@@ -303,32 +277,22 @@ const achievementImages = [
     flex: 1;
   }
 
-  [dir="rtl"] .achievements-text {
-    order: 2;
-  }
-
-  [dir="rtl"] .achievements-carousel {
-    order: 1;
-  }
-
   /* Quick Offers Section */
   .quick-offers {
-    position: relative;
+    background: var(--color-bg-light);
     padding: 5rem 0;
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   }
 
   .offers-wrapper {
-    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
   }
 
   .offers-title {
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
     color: var(--color-primary);
     text-align: center;
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
     font-weight: 700;
   }
 
@@ -339,9 +303,7 @@ const achievementImages = [
   }
 
   .insurance-card {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: white;
     border-radius: 16px;
     padding: 1.35rem 1.05rem;
     display: flex;
@@ -366,7 +328,7 @@ const achievementImages = [
   }
 
   .insurance-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
   }
 
@@ -441,6 +403,11 @@ const achievementImages = [
     transform: scale(1.05);
   }
 
+  .insurance-icon.travel {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: white;
+  }
+
   .insurance-icon.domestic,
   .insurance-icon.home {
     background: linear-gradient(135deg, #10b981, #059669);
@@ -479,6 +446,7 @@ const achievementImages = [
 
   .hub-card:hover {
     background: linear-gradient(135deg, #B8963F, #A6802E);
+    transform: none;
   }
 
   .hub-card .insurance-title {
@@ -495,12 +463,27 @@ const achievementImages = [
     z-index: 1;
   }
 
+  .insurance-price {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+  }
+
   /* Section Styles */
   .section-title {
     font-size: clamp(1.75rem, 4vw, 2.5rem);
     text-align: center;
     color: var(--color-primary);
     margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    text-align: center;
+    color: var(--color-secondary);
+    margin-bottom: 2rem;
   }
 
   .section-description {
@@ -551,6 +534,10 @@ const achievementImages = [
   @media (max-width: 768px) {
     .hero-main {
       min-height: 70vh;
+    }
+
+    .hero-tagline {
+      letter-spacing: 2px;
     }
 
     .hero-main-content {
