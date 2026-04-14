@@ -38,48 +38,12 @@ const achievementImages = [
   <main>
     <!-- Hero Section -->
     <section class="hero-main" aria-label="Ameen Insurance Services">
-      <video
-        class="hero-video"
-        src="/file.mp4"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="metadata"
-      ></video>
-      <div class="hero-overlay" aria-hidden="true"></div>
       <div class="container hero-main-content">
         <div class="hero-text">
           <p class="hero-tagline">Legacy Secured | Future Assured</p>
           <h1 class="hero-main-title">Regal Insurance<br/>Management Services</h1>
           <p class="hero-since">Protecting Since 2010</p>
           <a href="/about" class="btn btn-hero">Discover Our Story</a>
-        </div>
-      </div>
-    </section>
-    <script type="module">
-      const setHeroPlaybackRate = () => {
-        const video = document.querySelector('.hero-main .hero-video');
-        if (video) {
-          video.playbackRate = 0.6;
-        }
-      };
-
-      setHeroPlaybackRate();
-      document.addEventListener('astro:page-load', setHeroPlaybackRate);
-    </script>
-
-    <!-- Achievements Section -->
-    <section class="section achievements">
-      <div class="container achievements-content">
-        <div class="achievements-text">
-          <p class="achievements-eyebrow">committed to your peace of mind</p>
-          <p class="achievements-body">
-            Ameen, the evolved identity of Regal Insurance Management Services LLC, has served Oman since 2010. With 15+ years of expertise, we deliver transparent, reliable insurance for individuals and corporates.
-          </p>
-        </div>
-        <div class="achievements-carousel">
-          <AchievementsCarousel images={achievementImages} client:load />
         </div>
       </div>
     </section>
@@ -158,6 +122,23 @@ const achievementImages = [
       </div>
     </section>
 
+    <!-- Achievements Section -->
+    <section class="section achievements">
+      <div class="container achievements-content">
+        <div class="achievements-text">
+          <p class="achievements-eyebrow">committed to your peace of mind</p>
+          <p class="achievements-body">
+            Ameen, the evolved identity of Regal Insurance Management Services LLC, has served Oman since 2010. With 15+ years of expertise, we deliver transparent, reliable insurance for individuals and corporates.
+          </p>
+        </div>
+        <div class="achievements-carousel">
+          <AchievementsCarousel images={achievementImages} client:load />
+        </div>
+      </div>
+    </section>
+
+
+
     <!-- Strategic Alliances Section -->
     <section class="section alliances">
       <div class="container">
@@ -182,35 +163,29 @@ const achievementImages = [
 <style>
   /* Hero Main Section */
   .hero-main {
-    position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    background: linear-gradient(160deg, #1a365d 0%, #2c5282 60%, #1e3a5f 100%);
     color: #ffffff;
+    position: relative;
+    overflow: hidden;
   }
 
-  .hero-video {
+  .hero-main::before {
+    content: '';
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    z-index: 0;
-  }
-
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 41, 59, 0.85) 50%, rgba(15, 23, 42, 0.92) 100%);
-    z-index: 1;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+    pointer-events: none;
   }
 
   .hero-main-content {
     position: relative;
-    z-index: 2;
+    z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -249,21 +224,21 @@ const achievementImages = [
   }
 
   .btn-hero {
-    display: inline-block;
-    background: linear-gradient(135deg, #C9A961, #B8963F);
-    color: white;
-    padding: 1rem 2.5rem;
-    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-accent);
+    color: #1a202c;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
     font-weight: 600;
     text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(201, 169, 97, 0.3);
+    transition: transform 0.2s ease, background 0.2s ease;
   }
 
   .btn-hero:hover {
-    background: linear-gradient(135deg, #B8963F, #A6802E);
+    background: #c9a020;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(201, 169, 97, 0.4);
   }
 
   /* Achievements Section */
